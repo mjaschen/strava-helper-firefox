@@ -1,4 +1,4 @@
-jQuery(function($) {
+Zepto(function($) {
 
     var mjaschen = mjaschen || {};
     mjaschen.strava = mjaschen.strava || {};
@@ -11,15 +11,15 @@ jQuery(function($) {
         },
 
         createKudosToAllButton : function() {
-            var $kudosAllButton = $("<div></div>")
-                .attr("id", "strava-helper-kudos-all-button")
-                .attr("title", "Give Kudos to all visible items.")
-                .text("👍");
-            $("body").prepend($kudosAllButton);
+            $("<div/>", {
+                id: "strava-helper-kudos-all-button",
+                title: "Give Kudos to all visible items.",
+                text: "👍"
+            }).prependTo("body");
         },
 
         giveKudosToAll : function() {
-            $("button.js-add-kudo").click();
+            $("button.js-add-kudo").trigger("click");
             mjaschen.strava.changeButtonText("✅")
 
             var timer = window.setTimeout(function() {
