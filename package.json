@@ -1,0 +1,13 @@
+{
+  "title": "Strava Helper",
+  "name": "strava-helper",
+  "version": "0.0.1",
+  "description": "Some tweaks for the Strava website",
+  "main": "index.js",
+  "author": "Marcus Jaschen",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT"
+}

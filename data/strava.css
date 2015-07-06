@@ -1,0 +1,20 @@
+div#strava-helper-kudos-all-button {
+    z-index: 1000;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+div#strava-helper-kudos-all-button:hover {
+    background: #eee;
+    border: 2px solid #fff;
+}
