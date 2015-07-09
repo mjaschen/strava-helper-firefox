@@ -17,6 +17,7 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - Promotional footer at the bottom
 - "Shop" link
 - "Get Premium" link
+- "Get Premium" box on dashboard
 - Social media dropdown menu in activity feed
 - "Create target" link
 - Social media buttons on activity detail page
