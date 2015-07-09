@@ -7,11 +7,10 @@ Zepto(function($) {
 
         init : function() {
             mjaschen.strava.createKudosToAllButton();
+            mjaschen.strava.removeClutter();
             mjaschen.strava.addVeloViewerLink();
             mjaschen.strava.addVeloViewerActivityLink();
             $(document).on("click", "#strava-helper-kudos-all-button", mjaschen.strava.giveKudosToAll);
-
-            mjaschen.strava.removeClutter();
         },
 
         createKudosToAllButton : function() {
