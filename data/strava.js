@@ -8,6 +8,8 @@ Zepto(function($) {
         init : function() {
             mjaschen.strava.createKudosToAllButton();
             $(document).on("click", "#strava-helper-kudos-all-button", mjaschen.strava.giveKudosToAll);
+
+            mjaschen.strava.fixUi();
         },
 
         createKudosToAllButton : function() {
@@ -29,7 +31,13 @@ Zepto(function($) {
 
         changeButtonText : function(text) {
             $("#strava-helper-kudos-all-button").text(text);
-        }
+        },
+
+        fixUi: function() {
+            // make top navigation fixed at top
+            $('.container > header').css({'position': 'fixed', 'top': '0', 'height': '55px'});
+            $('.container > .page').css({'top': '55px'});
+        },
 
     }
 
