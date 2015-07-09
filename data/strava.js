@@ -6,8 +6,9 @@ jQuery(function($) {
     mjaschen.strava = {
 
         init : function() {
-            mjaschen.strava.createKudosToAllButton();
-            $(document).on("click", "#strava-helper-kudos-all-button", mjaschen.strava.giveKudosToAll);
+            if (mjaschen.strava.isLoggedIn()) {
+                mjaschen.strava.createKudosToAllButton();
+            }
 
             mjaschen.strava.removeClutter();
             mjaschen.strava.fixUi();
@@ -18,7 +19,8 @@ jQuery(function($) {
                 .attr("id", "strava-helper-kudos-all-button")
                 .attr("title", "Give Kudos to all visible items.")
                 .text("👍");
-            $("body").prepend($kudosAllButton);
+            $(".feed-settings").append($kudosAllButton);
+            $(document).on("click", "#strava-helper-kudos-all-button", mjaschen.strava.giveKudosToAll);
         },
 
         giveKudosToAll : function() {
