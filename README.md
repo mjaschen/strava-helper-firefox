@@ -20,3 +20,7 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - Social media dropdown menu in activity feed
 - "Create target" link
 - Social media buttons on activity detail page
+
+## UI tweaks
+
+Pin the top navigation to the top! Scroll and don't get lost!

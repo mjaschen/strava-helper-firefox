@@ -11,6 +11,8 @@ Zepto(function($) {
             mjaschen.strava.addVeloViewerLink();
             mjaschen.strava.addVeloViewerActivityLink();
             $(document).on("click", "#strava-helper-kudos-all-button", mjaschen.strava.giveKudosToAll);
+
+            mjaschen.strava.fixUi();
         },
 
         createKudosToAllButton : function() {
@@ -148,6 +150,12 @@ Zepto(function($) {
 
         isLoggedIn: function() {
             return $('.user-menu').length > 0;
+        },
+
+        fixUi: function() {
+            // make top navigation fixed at top
+            $('.container > header').css({'position': 'fixed', 'top': '0', 'height': '55px'});
+            $('.container > .page').css({'top': '55px'});
         }
 
     }
