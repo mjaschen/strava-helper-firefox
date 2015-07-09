@@ -18,3 +18,11 @@ div#strava-helper-kudos-all-button:hover {
     background: #eee;
     border: 2px solid #fff;
 }
+
+section.others-section div.veloviewer {
+    margin-left: 1em;
+}
+
+section.others-section div.veloviewer div.labs-logo img {
+    height: 8px;
+}
