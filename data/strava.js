@@ -97,6 +97,7 @@ Zepto(function($) {
             mjaschen.strava.removeShareDropdown();
             mjaschen.strava.removeCreateTargetButton();
             mjaschen.strava.removeSharingButtons();
+            mjaschen.strava.removePremiumContainer();
         },
 
         removeFindFriends: function() {
@@ -127,6 +128,10 @@ Zepto(function($) {
 
         removeGetPremiumLink: function() {
             $('.user-nav > li.upgrade').remove();
+        },
+
+        removePremiumContainer : function() {
+            $("#dorado-module").remove();
         },
 
         removeShareDropdown: function() {
