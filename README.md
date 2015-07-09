@@ -25,3 +25,8 @@ Removes all social media and premium clutter from the dashboard and activity pag
 ## UI tweaks
 
 Pin the top navigation to the top! Scroll and don't get lost!
+
+## Contributions
+
+* [saesh](https://github.com/saesh)
+
