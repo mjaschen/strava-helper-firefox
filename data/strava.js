@@ -13,6 +13,7 @@ Zepto(function($) {
             $(document).on("click", "#strava-helper-kudos-all-button", mjaschen.strava.giveKudosToAll);
 
             mjaschen.strava.fixUi();
+            mjaschen.strava.addGlobalHeatMapLink();
         },
 
         createKudosToAllButton : function() {
@@ -156,6 +157,11 @@ Zepto(function($) {
             // make top navigation fixed at top
             $('.container > header').css({'position': 'fixed', 'top': '0', 'height': '55px'});
             $('.container > .page').css({'top': '55px'});
+        },
+
+        addGlobalHeatMapLink: function() {
+            // adds a link to the global heat map in the "Discover" top navigation dropdown menu
+            $('.global-nav li:nth-child(4)').find('ul').append('<li><a href="http://labs.strava.com/heatmap">Global Heat Map</a></li>');
         }
 
     }
