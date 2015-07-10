@@ -161,7 +161,7 @@ Zepto(function($) {
 
         addGlobalHeatMapLink: function() {
             // adds a link to the global heat map in the "Discover" top navigation dropdown menu
-            $('.global-nav li:nth-child(4)').find('ul').append('<li><a href="https://labs.strava.com/heatmap">Global Heat Map</a></li>');
+            $('.global-nav li:nth-child(4)').find('ul').append('<li><a href="http://labs.strava.com/heatmap">Global Heat Map</a></li>');
         }
 
     }
