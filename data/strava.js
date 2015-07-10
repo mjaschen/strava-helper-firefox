@@ -6,7 +6,9 @@ Zepto(function($) {
     mjaschen.strava = {
 
         init : function() {
-            mjaschen.strava.createKudosToAllButton();
+            if (mjaschen.strava.pageHasKudosButtons()) {
+                mjaschen.strava.createKudosToAllButton();
+            }
             mjaschen.strava.removeClutter();
             mjaschen.strava.addVeloViewerLink();
             mjaschen.strava.addVeloViewerActivityLink();
@@ -87,6 +89,17 @@ Zepto(function($) {
             }
 
             throw "Cannot extract activity ID from path: " + path;
+        },
+
+        pageHasKudosButtons: function() {
+            var fragment = document.location.pathname.split('/')[1];
+            var validPages = [ 'athletes', 'clubs', 'dashboard' ];
+
+            if (validPages.indexOf(fragment) > -1) {
+                return true;
+            }
+
+            return false;
         },
 
         removeClutter: function() {
