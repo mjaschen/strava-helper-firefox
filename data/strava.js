@@ -101,6 +101,7 @@ Zepto(function($) {
             mjaschen.strava.removeCreateTargetButton();
             mjaschen.strava.removeSharingButtons();
             mjaschen.strava.removePremiumContainer();
+            mjaschen.strava.cleanupFlyByPage();
         },
 
         removeFindFriends: function() {
@@ -147,6 +148,15 @@ Zepto(function($) {
 
         removeSharingButtons: function() {
             $('.sharing').remove();
+        },
+
+        cleanupFlyByPage: function() {
+            // remove top sharing buttons
+            $('.share').remove();
+
+            // remove unnecessary containers
+            $('#sidebar .labs-disclaimer').remove();
+            $('#sidebar .info').remove();
         },
 
         isLoggedIn: function() {
