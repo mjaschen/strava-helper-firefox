@@ -9,5 +9,36 @@
     "firefox": ">=38.0a1",
     "fennec": ">=38.0a1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "preferences": [{
+    "name": "addKudosButton",
+    "title": "Add 'Kudos to all' button",
+    "description": "Adds a button which gives kudos to all visible activities",
+    "type": "bool",
+    "value": true
+  }, {
+    "name": "removeClutter",
+    "title": "Remove clutter",
+    "description": "Removes social media links and premium incentives",
+    "type": "bool",
+    "value": true
+   }, {
+    "name": "addVeloViewerLinks",
+    "title": "Add links to VeloViewer",
+    "description": "Adds a link to the VeloViewer activity page and to VeloViewer.com",
+    "type": "bool",
+    "value": true
+   }, {
+    "name": "fixateNavBar",
+    "title": "Navigation always visible",
+    "description": "Pin the main navigation bar to the top, making it always visible",
+    "type": "bool",
+    "value": true
+   }, {
+    "name": "addGlobalHeatMapLink",
+    "title": "Add a link to the global heat map",
+    "description": "Adds a link to the global heat map in the 'Discover' menu",
+    "type": "bool",
+    "value": true
+   }]
 }

@@ -28,6 +28,10 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - Adds a link to VeloViewer to the main navigation bar
 - Adds a deep link to the VeloViewer activity details page (next to the Flyby link)
 
+## Settings
+
+Don't want all the features? You can fine tune Strava Helper in the add-on manager.
+
 ## Contributions
 
 * [saesh](https://github.com/saesh)
