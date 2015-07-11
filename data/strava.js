@@ -241,8 +241,6 @@ self.port.on('get-prefs', function(prefs) {
                                 return;
                             }
                             $segment
-                                .not(".strava-helper-clicked")
-                                .addClass("strava-helper-clicked")
                                 .find(".clickable[data-filter=" + leaderboardType + "]")
                                 .click();
                             window.clearInterval(timer);
