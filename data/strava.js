@@ -33,7 +33,7 @@ self.port.on('get-prefs', function(prefs) {
             },
 
             createKudosToAllButton : function() {
-                if (mjaschen.strava.pageHasKudosButtons()) {
+                if (mjaschen.strava.isPageValidForKudosButton()) {
                     $("<div/>", {
                         id: "strava-helper-kudos-all-button",
                         title: "Give Kudos to all visible items.",
@@ -107,7 +107,13 @@ self.port.on('get-prefs', function(prefs) {
                 throw "Cannot extract activity ID from path: " + path;
             },
 
-            pageHasKudosButtons: function() {
+            isPageValidForKudosButton: function() {
+                // test if we are in an iframe, i.e. Strava widget
+                if (window.frames.length === 0 && parent.frames.length === 1) {
+                    return false;
+                }
+
+                // test if we are on a page potentially containing kudos buttons
                 var fragment = document.location.pathname.split('/')[1];
                 var validPages = [ 'athletes', 'clubs', 'dashboard' ];
 
