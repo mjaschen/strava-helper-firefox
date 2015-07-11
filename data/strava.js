@@ -1,4 +1,5 @@
 self.port.on('get-prefs', function(prefs) {
+
     Zepto(function($) {
 
         var mjaschen = mjaschen || {};
@@ -9,6 +10,7 @@ self.port.on('get-prefs', function(prefs) {
             prefs: prefs,
 
             init : function() {
+
                 if (mjaschen.strava.prefs.addKudosButton) {
                     mjaschen.strava.createKudosToAllButton();
                     $(document).on("click", "#strava-helper-kudos-all-button", mjaschen.strava.giveKudosToAll);
@@ -30,6 +32,8 @@ self.port.on('get-prefs', function(prefs) {
                 if (mjaschen.strava.prefs.addGlobalHeatMapLink) {
                     mjaschen.strava.addGlobalHeatMapLink();
                 }
+
+                mjaschen.strava.changeCurrentSegmentLeaderboardType("my_results");
             },
 
             createKudosToAllButton : function() {
@@ -201,8 +205,46 @@ self.port.on('get-prefs', function(prefs) {
             addGlobalHeatMapLink: function() {
                 // adds a link to the global heat map in the "Discover" top navigation dropdown menu
                 $('.global-nav li:nth-child(4)').find('ul').append('<li><a href="http://labs.strava.com/heatmap">Global Heat Map</a></li>');
-            }
+            },
 
+            /**
+             * Switch the default filter of the segment leaderboards on activity pages.
+             *
+             * We're using a workaround here: the known way (find the details in the link
+             * to the Stravistix Chrome extension) to switch the filter via the
+             * `Strava.Labs.Activities.SegmentLeaderboardView` object doesn't work here,
+             * because we've no access to the Strava object in this extension.
+             *
+             * An interval timer checks every 100 ms if the filter link is available after
+             * a segment was activated and rendered. If the link was found the click event is
+             * triggered and the timer is canceled.
+             *
+             * The click event on the filter link is only triggered once.
+             *
+             * @link https://github.com/thomaschampagne/stravistix/blob/develop/hook/extension/js/modifiers/DefaultLeaderboardFilterModifier.js#L19
+             *
+             * @param  {string} leaderboardType The data value of the filter to be set, e.g. 'my_results'
+             * @return {void}
+             */
+            changeCurrentSegmentLeaderboardType : function(leaderboardType) {
+                $("table.segments tr").on("click", function() {
+                    var $segment = $(this);
+                    var timer = window.setInterval(
+                        function() {
+                            if ($(".clickable[data-filter=" + leaderboardType + "]").length === 0) {
+                                return;
+                            }
+                            $segment
+                                .not(".strava-helper-clicked")
+                                .addClass("strava-helper-clicked")
+                                .find(".clickable[data-filter=" + leaderboardType + "]")
+                                .click();
+                            window.clearInterval(timer);
+                        },
+                        100
+                    );
+                });
+            }
         }
 
         mjaschen.strava.init();
