@@ -17,6 +17,7 @@ self.port.on('get-prefs', function(prefs) {
                 }
 
                 if (mjaschen.strava.prefs.removeClutter) {
+                    mjaschen.strava.moveRecentActivitiesToTop();
                     mjaschen.strava.removeClutter();
                 }
 
@@ -252,6 +253,18 @@ self.port.on('get-prefs', function(prefs) {
                         100
                     );
                 });
+            },
+
+            moveRecentActivitiesToTop: function() {
+                var recentActivities = $('.js-channel-footer-left')
+                                            .clone()
+                                            .removeClass('spans-one-third')
+                                            .addClass('section');
+                recentActivities
+                    .find('h3')
+                    .removeClass('h4');
+
+                recentActivities.insertAfter($('#progress-goals'));
             }
         }
 
