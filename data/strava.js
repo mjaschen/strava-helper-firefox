@@ -33,7 +33,9 @@ self.port.on('get-prefs', function(prefs) {
                     mjaschen.strava.addGlobalHeatMapLink();
                 }
 
-                mjaschen.strava.changeCurrentSegmentLeaderboardType("my_results");
+                if (mjaschen.strava.prefs.enableCustomLeaderboardType) {
+                    mjaschen.strava.changeCurrentSegmentLeaderboardType(mjaschen.strava.prefs.leaderboardType);
+                }
             },
 
             createKudosToAllButton : function() {

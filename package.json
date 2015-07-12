@@ -40,5 +40,41 @@
     "description": "Adds a link to the global heat map in the 'Discover' menu",
     "type": "bool",
     "value": true
-   }]
+   }, {
+    "name": "enableCustomLeaderboardType",
+    "title": "Change the default segement leaderboard filter",
+    "description": "Changes the segment leaderboard to the filter selected below",
+    "type": "bool",
+    "value": true
+   }, {
+    "name": "leaderboardType",
+    "type": "menulist",
+    "title": "Default segment leaderboard filter",
+    "value": "my_results",
+    "options": [
+        {
+            "value": "overall",
+            "label": "All-time"
+        },
+        {
+            "value": "current_year",
+            "label": "This Year"
+        },
+        {
+            "value": "men",
+            "label": "Men"
+        },
+        {
+            "value": "women",
+            "label": "Women"
+        },
+        {
+            "value": "following",
+            "label": "I'm following"
+        },
+        {
+            "value": "my_results",
+            "label": "My Results"
+        }]
+    }]
 }

@@ -13,7 +13,9 @@ pageMod.PageMod({
             'addVeloViewerLinks': prefSet.prefs.addVeloViewerLinks,
             'fixateNavBar': prefSet.prefs.fixateNavBar,
             'addGlobalHeatMapLink': prefSet.prefs.addGlobalHeatMapLink,
-            'removeClutter': prefSet.prefs.removeClutter
+            'removeClutter': prefSet.prefs.removeClutter,
+            'enableCustomLeaderboardType' : prefSet.prefs.enableCustomLeaderboardType,
+            'leaderboardType': prefSet.prefs.leaderboardType
         }
         worker.port.emit("get-prefs", settings);
     }
