@@ -233,7 +233,7 @@ self.port.on('get-prefs', function(prefs) {
              * @return {void}
              */
             changeCurrentSegmentLeaderboardType : function(leaderboardType) {
-                $("table.segments tr").on("click", function() {
+                $(document).on("click", "table.segments tr", function() {
                     var $segment = $(this);
                     var timer = window.setInterval(
                         function() {
