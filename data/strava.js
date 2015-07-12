@@ -37,6 +37,10 @@ self.port.on('get-prefs', function(prefs) {
                 if (mjaschen.strava.prefs.enableCustomLeaderboardType) {
                     mjaschen.strava.changeCurrentSegmentLeaderboardType(mjaschen.strava.prefs.leaderboardType);
                 }
+
+                if (mjaschen.strava.prefs.autoloadActivities) {
+                    mjaschen.strava.clickMoreButtonAutomatically();
+                }
             },
 
             createKudosToAllButton : function() {
@@ -265,9 +269,40 @@ self.port.on('get-prefs', function(prefs) {
                     .removeClass('h4');
 
                 recentActivities.insertAfter($('#progress-goals'));
+            },
+
+            clickMoreButtonAutomatically: function() {
+                var loadMoreButton;
+                var timer;
+
+                $(window).scroll(function() {
+                    if (timer) {
+                        window.clearTimeout(timer);
+                    }
+
+                    timer = window.setTimeout(function(){
+                        loadMoreButton = $('a.load-feed.button');
+                        if (isInView(loadMoreButton)) {
+                            loadMoreButton.click();
+                        }
+                    }, 200);
+                });
             }
         }
 
         mjaschen.strava.init();
+
+        function isInView(element) {
+            var $element = $(element);
+            var $window = $(window);
+
+            var docViewTop = $window.scrollTop();
+            var docViewBottom = docViewTop + $window.height();
+
+            var elementTop = $element.offset().top;
+            var elementBottom = elementTop + $element.height();
+
+            return ((elementBottom <= docViewBottom) && (elementTop >= docViewTop));
+        }
     });
 });

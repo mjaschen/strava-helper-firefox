@@ -28,6 +28,7 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - Adds a link to VeloViewer to the main navigation bar
 - Adds a deep link to the VeloViewer activity details page (next to the Flyby link)
 - Changes the default filter for the segment leaderboards to "My Results" (configurable in the settings)
+- Automatically load more activities in the activity feed
 
 ## Settings
 

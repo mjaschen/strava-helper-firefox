@@ -1,57 +1,57 @@
 {
-  "title": "Strava Helper",
-  "name": "strava-helper",
-  "version": "0.2.2",
-  "description": "Some tweaks for the Strava website",
-  "main": "index.js",
-  "author": "Marcus Jaschen",
-  "engines": {
-    "firefox": ">=38.0a1",
-    "fennec": ">=38.0a1"
-  },
-  "license": "MIT",
-  "preferences": [{
-    "name": "addKudosButton",
-    "title": "Add 'Kudos to all' button",
-    "description": "Adds a button which gives kudos to all visible activities",
-    "type": "bool",
-    "value": true
-  }, {
-    "name": "removeClutter",
-    "title": "Remove clutter",
-    "description": "Removes social media links and premium incentives",
-    "type": "bool",
-    "value": true
-   }, {
-    "name": "addVeloViewerLinks",
-    "title": "Add links to VeloViewer",
-    "description": "Adds a link to the VeloViewer activity page and to VeloViewer.com",
-    "type": "bool",
-    "value": true
-   }, {
-    "name": "fixateNavBar",
-    "title": "Navigation always visible",
-    "description": "Pin the main navigation bar to the top, making it always visible",
-    "type": "bool",
-    "value": true
-   }, {
-    "name": "addGlobalHeatMapLink",
-    "title": "Add a link to the global heat map",
-    "description": "Adds a link to the global heat map in the 'Discover' menu",
-    "type": "bool",
-    "value": true
-   }, {
-    "name": "enableCustomLeaderboardType",
-    "title": "Change the default segement leaderboard filter",
-    "description": "Changes the segment leaderboard to the filter selected below",
-    "type": "bool",
-    "value": true
-   }, {
-    "name": "leaderboardType",
-    "type": "menulist",
-    "title": "Default segment leaderboard filter",
-    "value": "my_results",
-    "options": [
+    "title": "Strava Helper",
+    "name": "strava-helper",
+    "version": "0.2.2",
+    "description": "Some tweaks for the Strava website",
+    "main": "index.js",
+    "author": "Marcus Jaschen",
+    "engines": {
+        "firefox": ">=38.0a1",
+        "fennec": ">=38.0a1"
+    },
+    "license": "MIT",
+    "preferences": [{
+        "name": "addKudosButton",
+        "title": "Add 'Kudos to all' button",
+        "description": "Adds a button which gives kudos to all visible activities",
+        "type": "bool",
+        "value": true
+    }, {
+        "name": "removeClutter",
+        "title": "Remove clutter",
+        "description": "Removes social media links and premium incentives",
+        "type": "bool",
+        "value": true
+    }, {
+        "name": "addVeloViewerLinks",
+        "title": "Add links to VeloViewer",
+        "description": "Adds a link to the VeloViewer activity page and to VeloViewer.com",
+        "type": "bool",
+        "value": true
+    }, {
+        "name": "fixateNavBar",
+        "title": "Navigation always visible",
+        "description": "Pin the main navigation bar to the top, making it always visible",
+        "type": "bool",
+        "value": true
+    }, {
+        "name": "addGlobalHeatMapLink",
+        "title": "Add a link to the global heat map",
+        "description": "Adds a link to the global heat map in the 'Discover' menu",
+        "type": "bool",
+        "value": true
+    }, {
+        "name": "enableCustomLeaderboardType",
+        "title": "Change the default segement leaderboard filter",
+        "description": "Changes the segment leaderboard to the filter selected below",
+        "type": "bool",
+        "value": true
+    }, {
+        "name": "leaderboardType",
+        "type": "menulist",
+        "title": "Default segment leaderboard filter",
+        "value": "my_results",
+        "options": [
         {
             "value": "overall",
             "label": "All-time"
@@ -76,5 +76,11 @@
             "value": "my_results",
             "label": "My Results"
         }]
+    }, {
+        "name": "autoloadActivities",
+        "title": "Automatically load more activities",
+        "description": "Load more activities when the bottom of the activity feed is reached",
+        "type": "bool",
+        "value": true
     }]
 }

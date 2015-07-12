@@ -15,7 +15,8 @@ pageMod.PageMod({
             'addGlobalHeatMapLink': prefSet.prefs.addGlobalHeatMapLink,
             'removeClutter': prefSet.prefs.removeClutter,
             'enableCustomLeaderboardType' : prefSet.prefs.enableCustomLeaderboardType,
-            'leaderboardType': prefSet.prefs.leaderboardType
+            'leaderboardType': prefSet.prefs.leaderboardType,
+            'autoloadActivities': prefSet.prefs.autoloadActivities
         }
         worker.port.emit("get-prefs", settings);
     }
