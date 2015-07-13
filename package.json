@@ -1,7 +1,7 @@
 {
     "title": "Strava Helper",
     "name": "strava-helper",
-    "version": "0.2.6",
+    "version": "0.3.0",
     "description": "Some tweaks for the Strava website",
     "main": "index.js",
     "author": "Marcus Jaschen",
@@ -80,6 +80,12 @@
         "name": "autoloadActivities",
         "title": "Automatically load more activities",
         "description": "Load more activities when the bottom of the activity feed is reached",
+        "type": "bool",
+        "value": true
+    }, {
+        "name": "removeConsecutiveAvatarsInFeed",
+        "title": "Automatically remove consecutive avatar images",
+        "description": "Removes consecutive avatar images from the activity feed if the activities are from the same user",
         "type": "bool",
         "value": true
     }]
