@@ -236,7 +236,7 @@ self.port.on('get-prefs', function(prefs) {
             },
 
             watchFeedAutoScroll : function() {
-                var observerTarget = document.querySelector('div.feed-container');
+                var observerTarget = $('div.feed-container')[0];
                 var observerConfig = { childList: true };
                 var observer = new MutationObserver(function(mutations) {
                     mutations.forEach(function(mutation) {
