@@ -41,6 +41,9 @@ self.port.on('get-prefs', function(prefs) {
                 if (mjaschen.strava.prefs.autoloadActivities) {
                     mjaschen.strava.clickMoreButtonAutomatically();
                 }
+
+                mjaschen.strava.watchFeedAutoScroll();
+                mjaschen.strava.removeConsecutiveAvatarsInFeed();
             },
 
             createKudosToAllButton : function() {
@@ -116,6 +119,16 @@ self.port.on('get-prefs', function(prefs) {
                 }
 
                 throw "Cannot extract activity ID from path: " + path;
+            },
+
+            getAthleteIdFromUrl : function(url) {
+                var match = url.match(/\/athletes\/(\d+)/)
+
+                if (match.length === 2) {
+                    return match[1];
+                }
+
+                throw "Cannot extract athlete ID from url: " + url;
             },
 
             isPageValidForKudosButton: function() {
@@ -220,6 +233,41 @@ self.port.on('get-prefs', function(prefs) {
                     .next()
                     .append('<li><a href="http://labs.strava.com/heatmap">Global Heat Map</a></li>')
                     .css('max-height', '400px');
+            },
+
+            watchFeedAutoScroll : function() {
+                var observerTarget = document.querySelector('div.feed-container');
+                var observerConfig = { childList: true };
+                var observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === "childList") {
+                            mjaschen.strava.removeConsecutiveAvatarsInFeed();
+                        }
+                  });
+                });
+
+                observer.observe(observerTarget, observerConfig);
+             },
+
+            removeConsecutiveAvatarsInFeed : function() {
+                var lastAthleteId;
+                $("div.feed-entry a.avatar").each(function(idx, element) {
+                    var $elem = $(element);
+                    try {
+                        var currentAthleteId = mjaschen.strava.getAthleteIdFromUrl($elem.attr("href"))
+                    } catch (e) {
+                        console.error(e);
+                        return;
+                    }
+
+                    if (lastAthleteId === currentAthleteId) {
+                        $elem.siblings(".app-icon").css("margin-top", 0);
+                        $elem.remove();
+
+                    }
+
+                    lastAthleteId = currentAthleteId;
+                });
             },
 
             /**
