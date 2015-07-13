@@ -147,6 +147,7 @@ self.port.on('get-prefs', function(prefs) {
                 mjaschen.strava.removeCreateTargetButton();
                 mjaschen.strava.removeSharingButtons();
                 mjaschen.strava.removePremiumContainer();
+                mjaschen.strava.removeTrophyPremiumContainer();
                 mjaschen.strava.cleanupFlyByPage();
             },
 
@@ -182,6 +183,11 @@ self.port.on('get-prefs', function(prefs) {
 
             removePremiumContainer : function() {
                 $("#dorado-module").remove();
+            },
+
+            removeTrophyPremiumContainer : function() {
+                $("ul.list-trophies li.upsell").remove();
+                $("#trophy-case div.upsell").remove();
             },
 
             removeShareDropdown: function() {
