@@ -34,9 +34,10 @@ Removes all social media and premium clutter from the dashboard and activity pag
 
 ## Settings
 
-Don't want all the features? You can fine tune Strava Helper in the add-on manager.
+Don't want all the features? You can fine tune Strava Helper in the add-on manager ("Preferences").
 
-## Contributions
+## Contributors
 
 * [saesh](https://github.com/saesh)
+* [Marcus Jaschen](https://www.marcusjaschen.de/)
 
