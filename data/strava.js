@@ -119,20 +119,13 @@ self.port.on('get-prefs', function(prefs) {
             },
 
             isPageValidForKudosButton: function() {
-                // test if we are in an iframe, i.e. Strava widget
-                if (window.frames.length === 0 && parent.frames.length === 1) {
+                if (isIframe()) {
                     return false;
                 }
 
-                // test if we are on a page potentially containing kudos buttons
-                var fragment = document.location.pathname.split('/')[1];
-                var validPages = [ 'athletes', 'clubs', 'dashboard' ];
-
-                if (validPages.indexOf(fragment) > -1) {
+                if (isCurrentPage([ 'athletes', 'clubs', 'dashboard' ])) {
                     return true;
                 }
-
-                return false;
             },
 
             removeClutter: function() {
@@ -173,7 +166,7 @@ self.port.on('get-prefs', function(prefs) {
 
             removeShopLink: function() {
                 if (mjaschen.strava.isLoggedIn()) {
-                    $('.global-nav li:last-child').remove();
+                    $('ul.global-nav a[href^="/shop"]').parent().remove();
                 }
             },
 
@@ -223,7 +216,10 @@ self.port.on('get-prefs', function(prefs) {
 
             addGlobalHeatMapLink: function() {
                 // adds a link to the global heat map in the "Discover" top navigation dropdown menu
-                $('.global-nav li:nth-child(4)').find('ul').append('<li><a href="http://labs.strava.com/heatmap">Global Heat Map</a></li>');
+                $('ul.global-nav a[href^="/segments/explore"]')
+                    .next()
+                    .append('<li><a href="http://labs.strava.com/heatmap">Global Heat Map</a></li>')
+                    .css('max-height', '400px');
             },
 
             /**
@@ -266,10 +262,14 @@ self.port.on('get-prefs', function(prefs) {
             },
 
             moveRecentActivitiesToTop: function() {
+                if (!isCurrentPage(['dashboard'])) {
+                    return;
+                }
+
                 var recentActivities = $('.js-channel-footer-left')
-                                            .clone()
-                                            .removeClass('spans-one-third')
-                                            .addClass('section');
+                                        .clone()
+                                        .removeClass('spans-one-third')
+                                        .addClass('section');
                 recentActivities
                     .find('h3')
                     .removeClass('h4');
@@ -278,6 +278,10 @@ self.port.on('get-prefs', function(prefs) {
             },
 
             clickMoreButtonAutomatically: function() {
+                if (!isCurrentPage(['dashboard', 'clubs'])) {
+                    return;
+                }
+
                 var loadMoreButton;
                 var timer;
 
@@ -288,7 +292,7 @@ self.port.on('get-prefs', function(prefs) {
 
                     timer = window.setTimeout(function(){
                         loadMoreButton = $('a.load-feed.button');
-                        if (isInView(loadMoreButton)) {
+                        if (loadMoreButton.length === 1 && isInView(loadMoreButton)) {
                             loadMoreButton.click();
                         }
                     }, 200);
@@ -309,6 +313,20 @@ self.port.on('get-prefs', function(prefs) {
             var elementBottom = elementTop + $element.height();
 
             return ((elementBottom <= docViewBottom) && (elementTop >= docViewTop));
+        }
+
+        function isIframe() {
+            return window.frames.length === 0 && parent.frames.length === 1;
+        }
+
+        function isCurrentPage(fragments) {
+            var fragment = document.location.pathname.split('/')[1];
+
+            if (fragments.indexOf(fragment) > -1) {
+                return true;
+            }
+
+            return false;
         }
     });
 });
