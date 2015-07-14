@@ -4,7 +4,7 @@ var prefSet = require("sdk/simple-prefs");
 
 pageMod.PageMod({
     include: "*.strava.com",
-    contentScriptWhen: "end",
+    contentScriptWhen: "ready",
     contentScriptFile: [
         data.url("vendor/zepto.js"),
 
