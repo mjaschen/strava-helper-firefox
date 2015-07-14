@@ -130,7 +130,7 @@ var StravaHelper = (function(sh) {
 
     function removeConsecutiveAvatarsInFeed() {
         var lastAthleteId;
-        $("div.feed-entry a.avatar").each(function(idx, element) {
+        $("div.feed-entry a.avatar-md").each(function(idx, element) {
             var $elem = $(element);
             try {
                 var currentAthleteId = sh.util.getAthleteIdFromUrl($elem.attr("href"));
