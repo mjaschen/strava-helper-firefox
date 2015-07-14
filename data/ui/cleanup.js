@@ -113,9 +113,9 @@ var StravaHelper = (function(sh) {
 
     function watchFeedAutoScroll() {
         logger.debug("setting up observer for activity feed changes");
-        var observerTarget;
+        var observerTarget = null;
 
-        if (sh.util.isCurrentPage(['dashboard'])) {
+        if (sh.util.isCurrentPage(['dashboard', 'clubs'])) {
             observerTarget = document.querySelector('div.feed-container');
         }
         
