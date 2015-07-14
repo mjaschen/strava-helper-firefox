@@ -41,3 +41,8 @@ Don't want all the features? You can fine tune Strava Helper in the add-on manag
 * [saesh](https://github.com/saesh)
 * [Marcus Jaschen](https://www.marcusjaschen.de/)
 
+## Disclaimer
+
+This software is not endorsed by Strava. Please do not ask them for support.
+
+The term STRAVA and the Strava logo are the exclusive trademarks of, and are owned by, Strava Inc..
