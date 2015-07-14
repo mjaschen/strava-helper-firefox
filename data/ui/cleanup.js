@@ -164,7 +164,16 @@ var StravaHelper = (function(sh) {
             if (lastAthleteId === currentAthleteId) {
                 logger.debug("removing duplicate avatar image for athlete: " + currentAthleteId);
                 $elem.siblings(".app-icon").css("margin-top", "0");
-                $elem.remove();
+
+                if (sh.prefs.enableAnimations) {
+                    $elem.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                        $elem.remove();
+                    });
+
+                    $elem.addClass('animated zoomOut');
+                } else {
+                    $elem.remove();
+                }
             }
 
             lastAthleteId = currentAthleteId;
