@@ -33,7 +33,3 @@ div.sh-separator {
     background-color: #FC4C02;
     -moz-animation-duration: 0.25s;
 }
-
-div.sh-seperator.delayed {
-    -moz-animation-delay: 2s;
-}
