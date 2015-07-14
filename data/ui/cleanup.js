@@ -100,7 +100,7 @@ var StravaHelper = (function(sh) {
     }
 
     function removeShareDropdown() {
-        $(".drop-down-menu.share").remove();
+        $(".share").remove();
     }
 
     function removeCreateTargetButton() {
@@ -118,7 +118,7 @@ var StravaHelper = (function(sh) {
         if (sh.util.isCurrentPage(['dashboard', 'clubs'])) {
             observerTarget = document.querySelector('div.feed-container');
         }
-        
+
         if (sh.util.isCurrentPage(['athletes'])) {
             observerTarget = document.querySelector('div#interval-rides');
         }
@@ -134,8 +134,13 @@ var StravaHelper = (function(sh) {
                 if (mutation.type === "childList") {
                     logger.debug("detected change in feed-container");
                     removeConsecutiveAvatarsInFeed();
+                    if (sh.prefs.removeClutter) {
+                        removeShareDropdown();
+                    }
                 }
-          });
+            });
+
+            sh.pipe.publish('feed-updated');
         });
 
         observer.observe(observerTarget, observerConfig);

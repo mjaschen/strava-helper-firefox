@@ -26,7 +26,10 @@ pageMod.PageMod({
 
         data.url("sh.main.js")
     ],
-    contentStyleFile: data.url("style/strava.css"),
+    contentStyleFile: [
+        data.url("style/strava.css"),
+        data.url("style/animate.min.css")
+    ],
     onAttach: function(worker) {
         var settings = {
             'addKudosButton': prefSet.prefs.addKudosButton,
@@ -37,7 +40,8 @@ pageMod.PageMod({
             'enableCustomLeaderboardType' : prefSet.prefs.enableCustomLeaderboardType,
             'leaderboardType': prefSet.prefs.leaderboardType,
             'autoloadActivities': prefSet.prefs.autoloadActivities,
-            'removeConsecutiveAvatarsInFeed': prefSet.prefs.removeConsecutiveAvatarsInFeed
+            'removeConsecutiveAvatarsInFeed': prefSet.prefs.removeConsecutiveAvatarsInFeed,
+            'enableAnimations': prefSet.prefs.enableAnimations
         }
         worker.port.emit("get-prefs", settings);
     }

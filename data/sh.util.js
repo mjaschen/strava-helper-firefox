@@ -9,7 +9,7 @@ var StravaHelper = (function(sh, $, window, document) {
             var fragment = document.location.pathname.split('/')[1];
 
             if (fragments.indexOf(fragment) > -1) {
-                    return true;
+                return true;
             }
 
             return false;
@@ -52,6 +52,16 @@ var StravaHelper = (function(sh, $, window, document) {
             }
 
             throw "Cannot extract athlete ID from url: " + url;
+        },
+
+        getActivityIdFromUrl: function(url) {
+            var match = url.match(/\/activities\/(\d+)/)
+
+            if (match.length === 2) {
+                return match[1];
+            }
+
+            throw "Cannot extract activity ID from url: " + url;
         },
 
         timer: function(label) {
