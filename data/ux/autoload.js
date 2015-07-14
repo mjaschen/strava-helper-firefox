@@ -22,7 +22,7 @@ var StravaHelper = (function(sh) {
     sh.pipe.subscribe('feed-updated', function() {
         logger.debug('feed-update received');
 
-        insertSeperator(lastActivityId);
+        insertSeparator(lastActivityId);
         lastActivityId = getLastActivityId();
     });
 
@@ -67,13 +67,13 @@ var StravaHelper = (function(sh) {
     /*
      * Same as in getLastActivityId. Get the last feed-entry by finding it by it's contained anchor.
      */
-    function insertSeperator(activityId) {
+    function insertSeparator(activityId) {
         var feedEntry = $('a[href="/activities/' + activityId + '"]').closest('div[class~="feed-entry"]');
-        var seperator = $('<div class="sh-seperator"></div>');
+        var separator = $('<div class="sh-separator"></div>');
         if (sh.prefs.enableAnimations) {
-            seperator.addClass('animated zoomIn');
+            separator.addClass('animated zoomIn');
         }
-        seperator.insertAfter(feedEntry);
+        separator.insertAfter(feedEntry);
     }
 
     return sh;

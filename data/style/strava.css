@@ -27,9 +27,9 @@ section.others-section div.veloviewer div.labs-logo img {
     height: 8px;
 }
 
-div.sh-seperator {
-    width: 100%; 
-    height: 2px; 
+div.sh-separator {
+    width: 100%;
+    height: 2px;
     background-color: #FC4C02;
     -moz-animation-duration: 0.25s;
 }
