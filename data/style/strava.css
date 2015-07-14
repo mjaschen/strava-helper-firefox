@@ -19,6 +19,12 @@ div#strava-helper-kudos-all-button:hover {
     border: 2px solid #fff;
 }
 
+div#strava-helper-kudos-all-button.strava-helper-kudos-all-button-result {
+    font-size: 12px;
+    font-weight: normal;
+    -moz-animation-duration: 0.5s;
+}
+
 section.others-section div.veloviewer {
     margin-left: 1em;
 }

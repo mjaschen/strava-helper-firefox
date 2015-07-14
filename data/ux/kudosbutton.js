@@ -13,7 +13,7 @@ var StravaHelper = (function(sh) {
     };
 
     function createKudosToAllButton() {
-        if (!isPageValidForKudosButton()) {
+        if (! isPageValidForKudosButton()) {
             logger.debug('page not valid for kudos button');
             return;
         }
@@ -40,16 +40,30 @@ var StravaHelper = (function(sh) {
 
     function giveKudosToAll() {
         logger.debug('giving kudos to all');
+        var count = $("button.js-add-kudo").length;
         $("button.js-add-kudo").trigger("click");
-        changeButtonText("✅")
+        showKudosCount(count, true);
 
         var timer = window.setTimeout(function() {
-            changeButtonText("👍")
+            resetKudosButton();
         }, 1000);
     }
 
-    function changeButtonText(text) {
-        $("#strava-helper-kudos-all-button").text(text);
+    function showKudosCount(count) {
+        if (count === 0) {
+            return;
+        }
+        $("#strava-helper-kudos-all-button")
+            .text(count.toString() + "x")
+            .addClass("strava-helper-kudos-all-button-result animated bounce");
+        logger.debug("Kudos count: " + count.toString() + " items");
+    }
+
+    function resetKudosButton() {
+        $("#strava-helper-kudos-all-button")
+            .text("👍")
+            .removeClass("strava-helper-kudos-all-button-result animated bounce");
+        logger.debug("Resetted kudos button");
     }
 
     return sh;
