@@ -28,6 +28,10 @@ var StravaHelper = (function(sh) {
                 watchFeedAutoScroll();
                 removeConsecutiveAvatarsInFeed();
             }
+
+            if (sh.prefs.changeDefaultUploadToFile) {
+                changeUploadMenuItemToFileUpload();
+            }
         }
     };
 
@@ -165,6 +169,12 @@ var StravaHelper = (function(sh) {
 
             lastAthleteId = currentAthleteId;
         });
+    }
+
+    function changeUploadMenuItemToFileUpload() {
+        logger.debug('changing upload link to file upload');
+        $('span.upload-activity').parent().attr('href', '/upload/select');
+        $('a.new-upload-button').attr('href', '/upload/select');
     }
 
     return sh;

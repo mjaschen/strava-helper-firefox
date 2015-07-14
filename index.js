@@ -41,7 +41,8 @@ pageMod.PageMod({
             'leaderboardType': prefSet.prefs.leaderboardType,
             'autoloadActivities': prefSet.prefs.autoloadActivities,
             'removeConsecutiveAvatarsInFeed': prefSet.prefs.removeConsecutiveAvatarsInFeed,
-            'enableAnimations': prefSet.prefs.enableAnimations
+            'enableAnimations': prefSet.prefs.enableAnimations,
+            'changeDefaultUploadToFile': prefSet.prefs.changeDefaultUploadToFile
         }
         worker.port.emit("get-prefs", settings);
     }

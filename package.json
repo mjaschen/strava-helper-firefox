@@ -1,7 +1,7 @@
 {
     "title": "Strava Helper",
     "name": "strava-helper",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "description": "Some tweaks for the Strava website",
     "main": "index.js",
     "author": "Marcus Jaschen",
@@ -92,6 +92,12 @@
         "name": "enableAnimations",
         "title": "Enable animations",
         "description": "Enables animations for some actions done by Strava Helper",
+        "type": "bool",
+        "value": true
+    }, {
+        "name": "changeDefaultUploadToFile",
+        "title": "Change default upload type",
+        "description": "Set file upload as default upload type",
         "type": "bool",
         "value": true
     }]
