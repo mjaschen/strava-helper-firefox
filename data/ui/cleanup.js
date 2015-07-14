@@ -28,7 +28,6 @@ var StravaHelper = (function(sh) {
                 watchFeedAutoScroll();
                 removeConsecutiveAvatarsInFeed();
             }
-
         }
     };
 
@@ -113,13 +112,27 @@ var StravaHelper = (function(sh) {
     }
 
     function watchFeedAutoScroll() {
-        logger.debug("observing activity feed for changes");
-        var observerTarget = document.querySelector("div.feed-container");
+        logger.debug("setting up observer for activity feed changes");
+        var observerTarget;
+
+        if (sh.util.isCurrentPage(['dashboard'])) {
+            observerTarget = document.querySelector('div.feed-container');
+        }
+        
+        if (sh.util.isCurrentPage(['athletes'])) {
+            observerTarget = document.querySelector('div#interval-rides');
+        }
+
+        if (observerTarget === null) {
+            logger.debug("no observable element found");
+            return false;
+        }
+
         var observerConfig = { childList: true };
         var observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {
                 if (mutation.type === "childList") {
-                    logger.log("detected change in feed-container");
+                    logger.debug("detected change in feed-container");
                     removeConsecutiveAvatarsInFeed();
                 }
           });
