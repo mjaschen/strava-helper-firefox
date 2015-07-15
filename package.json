@@ -100,5 +100,11 @@
         "description": "Set file upload as default upload type",
         "type": "bool",
         "value": true
+    }, {
+        "name": "enableNotifications",
+        "title": "Enable notifications",
+        "description": "Allow notification popups",
+        "type": "bool",
+        "value": true
     }]
 }

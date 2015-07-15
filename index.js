@@ -25,13 +25,14 @@ pageMod.PageMod({
         data.url("ux/autoload.js"),
         data.url("ux/segmentleaderboard.js"),
         data.url("ux/veloviewer.js"),
+        data.url("ux/notifications.js"),
 
         data.url("sh.main.js")
     ],
     contentStyleFile: [
-        data.url("style/strava.css"),
         data.url("vendor/animate.css/animate.min.css"),
-        data.url("vendor/toastr/toastr.min.css")
+        data.url("vendor/toastr/toastr.min.css"),
+        data.url("style/strava.css")
     ],
     onAttach: function(worker) {
         var settings = {
@@ -45,7 +46,8 @@ pageMod.PageMod({
             'autoloadActivities': prefSet.prefs.autoloadActivities,
             'removeConsecutiveAvatarsInFeed': prefSet.prefs.removeConsecutiveAvatarsInFeed,
             'enableAnimations': prefSet.prefs.enableAnimations,
-            'changeDefaultUploadToFile': prefSet.prefs.changeDefaultUploadToFile
+            'changeDefaultUploadToFile': prefSet.prefs.changeDefaultUploadToFile,
+            'enableNotifications': prefSet.prefs.enableNotifications
         }
         worker.port.emit("get-prefs", settings);
     }

@@ -39,3 +39,8 @@ div.sh-separator {
     background-color: #FC4C02;
     -moz-animation-duration: 0.25s;
 }
+
+/* toastr override */
+.toast-info {
+    background-color: #FC4C02;
+}
