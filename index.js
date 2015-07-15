@@ -6,7 +6,7 @@ pageMod.PageMod({
     include: "*.strava.com",
     contentScriptWhen: "ready",
     contentScriptFile: [
-        data.url("vendor/zepto/zepto.js"),
+        data.url("vendor/jquery/jquery.min.js"),
 
         data.url("sh.module.js"),
         data.url("sh.logger.js"),
