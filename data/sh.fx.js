@@ -1,45 +1,36 @@
 var StravaHelper = (function(sh) {
 
-    var defaultEffects = {
-        'insert': 'fadeIn',
-        'remove': 'fadeOut'
-    };
+    var defaultAnimation = "shake";
 
     sh.fx = {
-        insertAfter: function(content, target, _animation) {
-            var $content = $(content);
-            var $target = $(target);
-            var animation = _animation;
-
-            if (animation === undefined) {
-                animation = defaultEffects.insert;
-            }
-
-            if (animationsEnabled()) {
-                $content.addClass('animated ' + animation);
-            }
-
-            $content.insertAfter($target);
-        },
-
-        remove: function(element, _animation) {
+        /*
+         * Adds an effect to an element if animations are enabled.
+         *
+         * @param element the element to apply the effect on
+         * @param _animation animation identifier to use
+         * @param callback function to execute when the animation has ended
+         *
+         * @return element decorated with effect
+         */
+        add: function(element, _animation, callback) {
             var $elem = $(element);
             var animation = _animation;
 
-            if (! animationsEnabled()) {
-                $elem.remove();
-                return;
+            if (animation === undefined) {
+                animation = defaultAnimation;
             }
 
-            $elem.one('mozAnimationEnd animationend', function() {
-                $elem.remove();
-            });
+            if (! animationsEnabled()) {
+                return element;
+            }
 
-            if (animation === undefined) {
-                animation = defaultEffects.remove;
+            if (callback) {
+                $elem.one('mozAnimationEnd animationend', callback);
             }
 
             $elem.addClass('animated ' + animation);
+
+            return $elem;
         }
     };
 
