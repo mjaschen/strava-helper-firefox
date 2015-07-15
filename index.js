@@ -47,8 +47,14 @@ pageMod.PageMod({
             'removeConsecutiveAvatarsInFeed': prefSet.prefs.removeConsecutiveAvatarsInFeed,
             'enableAnimations': prefSet.prefs.enableAnimations,
             'changeDefaultUploadToFile': prefSet.prefs.changeDefaultUploadToFile,
-            'enableNotifications': prefSet.prefs.enableNotifications
+            'enableNotifications': prefSet.prefs.enableNotifications,
+            'firstInstall': prefSet.prefs.firstInstall
         }
         worker.port.emit("get-prefs", settings);
+
+        // the add-on was started for the first time, set the
+        // preference to false so the welcome notification won't
+        // be displayed again.
+        if (prefSet.prefs.firstInstall) prefSet.prefs.firstInstall = false;
     }
 });

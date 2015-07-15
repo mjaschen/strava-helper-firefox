@@ -20,6 +20,18 @@ var StravaHelper = (function(sh) {
             }
 
             displayInfoNotification(message);
+        },
+
+        firstInstallMessage: function() {
+
+            if (! sh.prefs.enableNotifications) {
+                return;
+            }
+
+            if (sh.prefs.firstInstall) {
+                toastr.options.progressBar = true;
+                toastr.info('You can enable and disable the features in the add-on preferences!', 'Thank you for using the Strava Helper!', {"timeOut": "8000"});
+            }
         }
     };
 
