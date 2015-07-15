@@ -6,7 +6,7 @@ pageMod.PageMod({
     include: "*.strava.com",
     contentScriptWhen: "ready",
     contentScriptFile: [
-        data.url("vendor/zepto.js"),
+        data.url("vendor/zepto/zepto.js"),
 
         data.url("sh.module.js"),
         data.url("sh.logger.js"),
@@ -29,7 +29,7 @@ pageMod.PageMod({
     ],
     contentStyleFile: [
         data.url("style/strava.css"),
-        data.url("style/animate.min.css")
+        data.url("vendor/animate.css/animate.min.css")
     ],
     onAttach: function(worker) {
         var settings = {
