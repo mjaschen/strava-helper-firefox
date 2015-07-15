@@ -7,6 +7,7 @@ pageMod.PageMod({
     contentScriptWhen: "ready",
     contentScriptFile: [
         data.url("vendor/jquery/jquery.min.js"),
+        data.url("vendor/toastr/toastr.min.js"),
 
         data.url("sh.module.js"),
         data.url("sh.logger.js"),
@@ -29,7 +30,8 @@ pageMod.PageMod({
     ],
     contentStyleFile: [
         data.url("style/strava.css"),
-        data.url("vendor/animate.css/animate.min.css")
+        data.url("vendor/animate.css/animate.min.css"),
+        data.url("vendor/toastr/toastr.min.css")
     ],
     onAttach: function(worker) {
         var settings = {
