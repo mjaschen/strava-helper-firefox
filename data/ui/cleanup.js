@@ -46,6 +46,7 @@ var StravaHelper = (function(sh) {
                                     .clone()
                                     .removeClass("spans-one-third")
                                     .addClass("section");
+
         recentActivities
             .find("h3")
             .removeClass("h4");
@@ -165,15 +166,7 @@ var StravaHelper = (function(sh) {
                 logger.debug("removing duplicate avatar image for athlete: " + currentAthleteId);
                 $elem.siblings(".app-icon").css("margin-top", "0");
 
-                if (sh.prefs.enableAnimations) {
-                    $elem.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                        $elem.remove();
-                    });
-
-                    $elem.addClass('animated zoomOut');
-                } else {
-                    $elem.remove();
-                }
+                sh.fx.remove($elem, "zoomOut");
             }
 
             lastAthleteId = currentAthleteId;

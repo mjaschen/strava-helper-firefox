@@ -70,10 +70,8 @@ var StravaHelper = (function(sh) {
     function insertSeparator(activityId) {
         var feedEntry = $('a[href="/activities/' + activityId + '"]').closest('div[class~="feed-entry"]');
         var separator = $('<div class="sh-separator"></div>');
-        if (sh.prefs.enableAnimations) {
-            separator.addClass('animated zoomIn');
-        }
-        separator.insertAfter(feedEntry);
+
+        sh.fx.insertAfter(separator, feedEntry, "zoomIn");
     }
 
     return sh;
