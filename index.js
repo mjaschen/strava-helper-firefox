@@ -13,6 +13,7 @@ pageMod.PageMod({
         data.url("sh.pipe.js"),
         data.url("sh.util.js"),
         data.url("sh.prefs.js"),
+        data.url("sh.fx.js"),
 
         data.url("ui/ui.module.js"),
         data.url("ui/navbar.js"),
