@@ -22,6 +22,7 @@ var StravaHelper = (function(sh) {
                 removeShareDropdown();
                 removeCreateTargetButton();
                 removeSharingButtons();
+                removeTrophyTabFromProfilePage();
             }
 
             if (sh.prefs.removeConsecutiveAvatarsInFeed) {
@@ -179,6 +180,18 @@ var StravaHelper = (function(sh) {
         logger.debug('changing upload link to file upload');
         $('span.upload-activity').parent().attr('href', '/upload/select');
         $('a.new-upload-button').attr('href', '/upload/select');
+    }
+
+    function removeTrophyTabFromProfilePage() {
+        if (! sh.util.isCurrentPage(['athletes'])) {
+            return;
+        }
+
+        if (sh.util.isUserPremium()) {
+            return;
+        }
+
+        $('li a[href$="trophy-case"]').remove();
     }
 
     return sh;

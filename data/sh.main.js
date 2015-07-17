@@ -12,6 +12,7 @@ var StravaHelper = (function(sh) {
         logger.debug('initializing Strava Helper');
 
         if (sh.util.isLoggedIn()) {
+            sh.util.setUserLevel();
             sh.ui.init();
             sh.ux.init();
         }
