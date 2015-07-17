@@ -192,6 +192,10 @@ var StravaHelper = (function(sh) {
             return;
         }
 
+        if (! sh.util.ownProfilePage()) {
+            return;
+        }
+
         $('li a[href$="trophy-case"]').remove();
     }
 
@@ -201,6 +205,10 @@ var StravaHelper = (function(sh) {
         }
 
         if (sh.util.isUserPremium()) {
+            return;
+        }
+
+        if (! sh.util.ownActivityPage()) {
             return;
         }
 
