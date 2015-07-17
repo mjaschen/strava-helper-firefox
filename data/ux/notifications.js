@@ -25,12 +25,15 @@ var StravaHelper = (function(sh) {
         firstInstallMessage: function() {
 
             if (! sh.prefs.enableNotifications) {
+                logger.debug('Notifications are disabled');
                 return;
             }
 
             if (sh.prefs.firstInstall) {
+                logger.debug('Displaying welcome notification');
                 toastr.options.progressBar = true;
                 toastr.info('You can enable and disable the features in the add-on preferences!', 'Thank you for using the Strava Helper!', {"timeOut": "8000"});
+                self.port.emit('first-install-notification-displayed');
             }
         }
     };

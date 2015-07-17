@@ -55,6 +55,8 @@ pageMod.PageMod({
         // the add-on was started for the first time, set the
         // preference to false so the welcome notification won't
         // be displayed again.
-        if (prefSet.prefs.firstInstall) prefSet.prefs.firstInstall = false;
+        worker.port.on('first-install-notification-displayed', function() {
+            prefSet.prefs.firstInstall = false;
+        });
     }
 });
