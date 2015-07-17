@@ -23,6 +23,7 @@ var StravaHelper = (function(sh) {
                 removeCreateTargetButton();
                 removeSharingButtons();
                 removeTrophyTabFromProfilePage();
+                removePremiumSideMenu();
             }
 
             if (sh.prefs.removeConsecutiveAvatarsInFeed) {
@@ -192,6 +193,18 @@ var StravaHelper = (function(sh) {
         }
 
         $('li a[href$="trophy-case"]').remove();
+    }
+
+    function removePremiumSideMenu() {
+        if (! sh.util.isCurrentPage(['activities'])) {
+            return;
+        }
+
+        if (sh.util.isUserPremium()) {
+            return;
+        }
+
+        $('li#premium-views').remove();
     }
 
     return sh;
