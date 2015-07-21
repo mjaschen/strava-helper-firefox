@@ -38,6 +38,7 @@ pageMod.PageMod({
             'fixateNavBar': prefSet.prefs.fixateNavBar,
             'addGlobalHeatMapLink': prefSet.prefs.addGlobalHeatMapLink,
             'removeClutter': prefSet.prefs.removeClutter,
+            'removeChallengesFromFeed': prefSet.prefs.removeChallengesFromFeed,
             'enableCustomLeaderboardType' : prefSet.prefs.enableCustomLeaderboardType,
             'leaderboardType': prefSet.prefs.leaderboardType,
             'autoloadActivities': prefSet.prefs.autoloadActivities,

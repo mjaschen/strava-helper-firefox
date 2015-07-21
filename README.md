@@ -31,6 +31,7 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - Changes the default filter for the segment leaderboards to "My Results" (configurable in the settings)
 - Automatically load more activities in the activity feed
 - Removes consecutive avatars from the same athlete in dashboard feed
+- Removes Challenge entries from activity feed (configurable in the settings)
 
 ## Settings
 

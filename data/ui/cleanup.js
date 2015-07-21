@@ -26,6 +26,10 @@ var StravaHelper = (function(sh) {
                 removePremiumSideMenu();
             }
 
+            if (sh.prefs.removeChallengesFromFeed) {
+                removeChallengesFromFeed();
+            }
+
             if (sh.prefs.removeConsecutiveAvatarsInFeed) {
                 watchFeedAutoScroll();
                 removeConsecutiveAvatarsInFeed();
@@ -213,6 +217,10 @@ var StravaHelper = (function(sh) {
         }
 
         $('li#premium-views').remove();
+    }
+
+    function removeChallengesFromFeed() {
+        $(".feed-entry.challenge").remove();
     }
 
     return sh;
