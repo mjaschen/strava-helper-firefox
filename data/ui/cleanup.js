@@ -28,6 +28,10 @@ var StravaHelper = (function(sh) {
 
             if (sh.prefs.removeChallengesFromFeed) {
                 removeChallengesFromFeed();
+                sh.pipe.subscribe('feed-updated', function() {
+                    logger.debug('feed-update received: trigger remove challenge entries');
+                    removeChallengesFromFeed();
+                });
             }
 
             if (sh.prefs.removeConsecutiveAvatarsInFeed) {
