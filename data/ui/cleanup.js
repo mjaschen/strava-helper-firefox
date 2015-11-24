@@ -115,7 +115,7 @@ var StravaHelper = (function(sh) {
     }
 
     function removeShareDropdown() {
-        $(".share").remove();
+        $(".drop-down-menu.share").remove();
     }
 
     function removeCreateTargetButton() {
