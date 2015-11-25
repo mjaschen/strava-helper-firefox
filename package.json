@@ -1,7 +1,7 @@
 {
     "title": "Strava Helper",
     "name": "strava-helper",
-    "version": "0.3.7",
+    "version": "0.3.8",
     "description": "Some tweaks for the Strava website",
     "main": "index.js",
     "author": "Marcus Jaschen",
