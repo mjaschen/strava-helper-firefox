@@ -24,6 +24,7 @@ var StravaHelper = (function(sh) {
                 removeSharingButtons();
                 removeTrophyTabFromProfilePage();
                 removePremiumSideMenu();
+                removeZwiftImage();
             }
 
             if (sh.prefs.removeChallengesFromFeed) {
@@ -151,6 +152,7 @@ var StravaHelper = (function(sh) {
                     removeConsecutiveAvatarsInFeed();
                     if (sh.prefs.removeClutter) {
                         removeShareDropdown();
+                        removeZwiftImage();
                     }
                 }
             });
@@ -225,6 +227,12 @@ var StravaHelper = (function(sh) {
 
     function removeChallengesFromFeed() {
         $(".feed-entry.challenge").remove();
+    }
+
+    function removeZwiftImage() {
+      // use hide() so the map previews and attached images after the first
+      // zwift activity will still load
+      $(".group-activity-primary-photo").has("div.zwift-feed-logo").hide();
     }
 
     return sh;
