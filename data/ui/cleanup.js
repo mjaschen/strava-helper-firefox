@@ -25,6 +25,7 @@ var StravaHelper = (function(sh) {
                 removeTrophyTabFromProfilePage();
                 removePremiumSideMenu();
                 removeZwiftImage();
+                removeFeedEntryPromos();
             }
 
             if (sh.prefs.removeChallengesFromFeed) {
@@ -127,70 +128,9 @@ var StravaHelper = (function(sh) {
         $(".sharing").remove();
     }
 
-    function watchFeedAutoScroll() {
-        logger.debug("setting up observer for activity feed changes");
-        var observerTarget = null;
-
-        if (sh.util.isCurrentPage(['dashboard', 'clubs'])) {
-            observerTarget = document.querySelector('div.feed-container');
-        }
-
-        if (sh.util.isCurrentPage(['athletes'])) {
-            observerTarget = document.querySelector('div#interval-rides');
-        }
-
-        if (observerTarget === null) {
-            logger.debug("no observable element found");
-            return false;
-        }
-
-        var observerConfig = { childList: true };
-        var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.type === "childList") {
-                    logger.debug("detected change in feed-container");
-                    removeConsecutiveAvatarsInFeed();
-                    if (sh.prefs.removeClutter) {
-                        removeShareDropdown();
-                        removeZwiftImage();
-                    }
-                }
-            });
-
-            sh.pipe.publish('feed-updated');
-        });
-
-        observer.observe(observerTarget, observerConfig);
-    }
-
-    function removeConsecutiveAvatarsInFeed() {
-        var lastAthleteId;
-        $("div.feed-entry a.avatar-md").each(function(idx, element) {
-            var $elem = $(element);
-            try {
-                var currentAthleteId = sh.util.getAthleteIdFromUrl($elem.attr("href"));
-            } catch (e) {
-                logger.error(e);
-                return;
-            }
-
-            if (lastAthleteId === currentAthleteId) {
-                logger.debug("removing duplicate avatar image for athlete: " + currentAthleteId);
-                $elem.siblings(".app-icon").css("margin-top", "0");
-
-                sh.fx.add($elem, "zoomOut", function() {
-                    $elem.remove();
-                });
-            }
-
-            lastAthleteId = currentAthleteId;
-        });
-    }
-
-    function changeUploadMenuItemToFileUpload() {
-        logger.debug('changing upload link to file upload');
-        $('span.upload-activity').parent().attr('href', '/upload/select');
-        $('a.new-upload-button').attr('href', '/upload/select');
+    // Promotions for city guides, etc.
+    function removeFeedEntryPromos() {
+        $(".feed-entry.promo.promo-fancy").remove();
     }
 
     function removeTrophyTabFromProfilePage() {
@@ -233,6 +173,73 @@ var StravaHelper = (function(sh) {
       // use hide() so the map previews and attached images after the first
       // zwift activity will still load
       $(".group-activity-primary-photo").has("div.zwift-feed-logo").hide();
+    }
+
+    function watchFeedAutoScroll() {
+        logger.debug("setting up observer for activity feed changes");
+        var observerTarget = null;
+
+        if (sh.util.isCurrentPage(['dashboard', 'clubs'])) {
+            observerTarget = document.querySelector('div.feed-container');
+        }
+
+        if (sh.util.isCurrentPage(['athletes'])) {
+            observerTarget = document.querySelector('div#interval-rides');
+        }
+
+        if (observerTarget === null) {
+            logger.debug("no observable element found");
+            return false;
+        }
+
+        var observerConfig = { childList: true };
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === "childList") {
+                    logger.debug("detected change in feed-container");
+                    removeConsecutiveAvatarsInFeed();
+                    if (sh.prefs.removeClutter) {
+                        removeShareDropdown();
+                        removeZwiftImage();
+                        removeFeedEntryPromos();
+                    }
+                }
+            });
+
+            sh.pipe.publish('feed-updated');
+        });
+
+        observer.observe(observerTarget, observerConfig);
+    }
+
+    function removeConsecutiveAvatarsInFeed() {
+        var lastAthleteId;
+        $("div.feed-entry a.avatar-md").each(function(idx, element) {
+            var $elem = $(element);
+            try {
+                var currentAthleteId = sh.util.getAthleteIdFromUrl($elem.attr("href"));
+            } catch (e) {
+                logger.error(e);
+                return;
+            }
+
+            if (lastAthleteId === currentAthleteId) {
+                logger.debug("removing duplicate avatar image for athlete: " + currentAthleteId);
+                $elem.siblings(".app-icon").css("margin-top", "0");
+
+                sh.fx.add($elem, "zoomOut", function() {
+                    $elem.remove();
+                });
+            }
+
+            lastAthleteId = currentAthleteId;
+        });
+    }
+
+    function changeUploadMenuItemToFileUpload() {
+        logger.debug('changing upload link to file upload');
+        $('span.upload-activity').parent().attr('href', '/upload/select');
+        $('a.new-upload-button').attr('href', '/upload/select');
     }
 
     return sh;
