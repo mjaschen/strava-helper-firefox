@@ -26,6 +26,7 @@ var StravaHelper = (function(sh) {
                 removePremiumSideMenu();
                 removeZwiftImage();
                 removeFeedEntryPromos();
+                removeYearlyProgressGoals();
             }
 
             if (sh.prefs.removeChallengesFromFeed) {
@@ -131,6 +132,10 @@ var StravaHelper = (function(sh) {
     // Promotions for city guides, etc.
     function removeFeedEntryPromos() {
         $(".feed-entry.promo.promo-fancy").remove();
+    }
+
+    function removeYearlyProgressGoals() {
+        $("#yearly-progress-goals").remove();
     }
 
     function removeTrophyTabFromProfilePage() {
