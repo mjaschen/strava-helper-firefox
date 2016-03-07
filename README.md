@@ -38,6 +38,22 @@ Removes all social media and premium clutter from the dashboard and activity pag
 
 Don't want all the features? You can fine tune Strava Helper in the add-on manager ("Preferences").
 
+## Building
+
+### Build a Release
+
+- increase version number in `package.json`
+- build extension package: `jpm xpi`
+
+### Development Builds
+
+Build XPI and load it into Firefox automatically everytime the source changes: 
+`jpm watchpost --post-url "http://127.0.0.1:9999/"` 
+
+The [Extension Auto-Installer](https://addons.mozilla.org/en-US/firefox/addon/autoinstaller/) add-on 
+is needed, please see the [setup guide](https://www.npmjs.com/package/jpm#using-post-and-watchpost) for further
+information.
+
 ## Contributors
 
 * [saesh](https://github.com/saesh)
