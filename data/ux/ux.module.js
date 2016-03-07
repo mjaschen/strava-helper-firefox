@@ -10,6 +10,7 @@ var StravaHelper = (function(sh) {
             sh.ux.autoload.enable();
             sh.ux.segmentleaderboard.changeType(sh.prefs.leaderboardType);
             sh.ux.veloviewer.addVeloViewerLinks();
+            sh.ux.notifications.firstInstallMessage();
         }
     };
 

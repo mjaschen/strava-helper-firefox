@@ -106,5 +106,17 @@
         "description": "Set file upload as default upload type",
         "type": "bool",
         "value": true
+    }, {
+        "name": "enableNotifications",
+        "title": "Enable notifications",
+        "description": "Allow notification popups",
+        "type": "bool",
+        "value": true
+    }, {
+        "name": "firstInstall",
+        "title": "Indicator if the add-on was started for the first time",
+        "type": "bool",
+        "hidden": true,
+        "value": true
     }]
 }

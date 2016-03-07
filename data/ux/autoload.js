@@ -44,7 +44,7 @@ var StravaHelper = (function(sh) {
                 loadMoreButton = $('a.load-feed.button:not(.loading-more)');
                 if (loadMoreButton.length === 1 && sh.util.isElementInView(loadMoreButton)) {
                     logger.debug('executing autoload');
-                    loadMoreButton.click();
+                    loadMoreButton[0].click();
                 }
             }, 200);
         });
