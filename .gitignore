@@ -1,3 +1,5 @@
 *.xpi
 .DS_Store
-strava_helper.zip
+strava_helper_firefox.zip
+strava_helper_chrome.zip
+manifest.json

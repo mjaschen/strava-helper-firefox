@@ -1,6 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Strava Helper",
+  "description": "Some tweaks for Strava. Adds a \"Give Kudos to All\" button, removes clutter and provides UI tweaks.",
   "version": "0.4.0",
 
   "applications":
@@ -38,6 +39,13 @@
   "web_accessible_resources": [
     "assets/img/kudos_all.png",
     "assets/img/logo-strava-helper-labs.svg"
-  ]
+  ],
 
+  "icons": {
+    "16": "assets/img/logo16.png",
+    "32": "assets/img/logo32.png",
+    "48": "assets/img/logo48.png",
+    "64": "assets/img/logo64.png",
+    "128": "assets/img/logo128.png"
+  }
 }

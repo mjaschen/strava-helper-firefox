@@ -1,11 +1,27 @@
-.PHONY: clean
-
 JS_RESOURCES = $(shell find assets/js -name '*.js')
 CSS_RESOURCES = $(shell find assets/css -name '*.css')
 IMAGE_RESOURCES = $(shell find assets/img -type f)
 
-strava_helper.zip: $(JS_RESOURCES) $(CSS_RESOURCES) $(IMAGE_RESOURCES) manifest.json
-	zip $@ $^
+all: strava_helper_firefox.zip strava_helper_chrome.zip
+
+strava_helper_firefox.zip: $(JS_RESOURCES) $(CSS_RESOURCES) $(IMAGE_RESOURCES) manifest_firefox
+	zip $@ $(JS_RESOURCES) $(CSS_RESOURCES) $(IMAGE_RESOURCES) manifest.json
+
+strava_helper_chrome.zip: $(JS_RESOURCES) $(CSS_RESOURCES) $(IMAGE_RESOURCES) manifest_chrome
+	zip $@ $(JS_RESOURCES) $(CSS_RESOURCES) $(IMAGE_RESOURCES) manifest.json
+
+manifest_firefox:
+	cp manifest.firefox.json manifest.json
+
+manifest_chrome:
+	cp manifest.chrome.json manifest.json
 
 clean:
-	rm -f strava_helper.zip
+	rm -f strava_helper_firefox.zip
+	rm -f strava_helper_chrome.zip
+	rm -f manifest.json
+
+.PHONY: clean
+.PHONY: manifest_firefox
+.PHONY: manifest_chrome
+.PHONY: all
