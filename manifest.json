@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+  "name": "Strava Helper",
+  "version": "0.4.0",
+
+  "applications":
+  {
+    "gecko":
+    {
+      "id": "@strava-helper",
+      "strict_min_version": "48.0"
+    }
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "content_scripts": [
+  {
+    "matches": [
+      "https://www.strava.com/*"
+    ],
+    "css": [
+      "assets/css/strava-helper.css"
+    ],
+    "js": [
+      "assets/js/jquery.min.js",
+      "assets/js/strava_helper.root.js",
+      "assets/js/strava_helper.util.js",
+      "assets/js/strava_helper.cleanup.js",
+      "assets/js/strava_helper.kudos_all.js",
+      "assets/js/strava_helper.navbar.js",
+      "assets/js/strava_helper.veloviewer.js"
+    ]
+  }],
+
+  "web_accessible_resources": [
+    "assets/img/kudos_all.png",
+    "assets/img/logo-strava-helper-labs.svg"
+  ]
+
+}
