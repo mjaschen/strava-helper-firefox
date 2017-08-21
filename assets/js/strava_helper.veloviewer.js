@@ -11,8 +11,10 @@
                 return;
             }
 
+            var brws = typeof chrome === "undefined" ? browser : chrome;
+
             var activity_id = strava_helper.util.getActivityId();
-            var img = browser.extension.getURL("assets/img/logo-strava-helper-labs.svg");
+            var img = strava_helper.util.getExtensionURL("assets/img/logo-strava-helper-labs.svg");
 
             $("section.others-section").append("<div style=\"margin-left: 10px;\"><div class=\"labs-logo\"><img alt=\"Strava Helper\" src=\"" + img + "\"></div><a class=\"minimal flybys-link view-all-link with-sprite link-veloviewer\" href=\"https://veloviewer.com/activities/" + activity_id + "\" target=\"_blank\">VeloViewer</a></div>");
         },

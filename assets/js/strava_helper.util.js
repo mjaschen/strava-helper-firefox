@@ -26,9 +26,16 @@ var strava_helper = (function(strava_helper) {
             return null;
         },
 
+        getExtensionURL: function (url) {
+            if (typeof chrome === "object") {
+                return chrome.extension.getURL(url);
+            }
+
+            return browser.extension.getURL(url);
+        },
+
         init: function() {
         }
-
     };
 
     strava_helper.util.init();
