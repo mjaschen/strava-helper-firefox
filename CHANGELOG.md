@@ -1,0 +1,31 @@
+# Change Log
+
+All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
+Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
+
+## [0.4.2] - 2017-08-24
+
+### Fixed
+
+- Sticky navbar did not work on activity pages
+
+## [0.4.1] - 2017-08-21
+
+### Fixed
+
+- Sticky navbar was not sticky
+
+## [0.4.0] - 2017-08-21
+
+### Changed
+
+- Migrate the code to “Web Extension”
+- New icon for the extension
+
+### Added
+
+- Support for Chrome
+
+### Removed
+
+- Autoloading new entries in timelines (Strava implemented that feature in the meantime)
