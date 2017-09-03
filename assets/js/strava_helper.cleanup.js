@@ -51,6 +51,10 @@ var strava_helper = (function(strava_helper) {
             $(".feed-entry.min-view", ".feed").remove()
         },
 
+        removePromosFromFeed: function () {
+            $(".promo", ".feed").remove();
+        },
+
         init: function() {
             strava_helper.cleanup.moveRecentActivitiesToTop();
             strava_helper.cleanup.removeDiscoverMoreSection();
@@ -59,6 +63,7 @@ var strava_helper = (function(strava_helper) {
             strava_helper.cleanup.removeUpcomingEvents();
             strava_helper.cleanup.removeShopLink();
             strava_helper.cleanup.removeClubJoinsFromFeed();
+            strava_helper.cleanup.removePromosFromFeed();
             strava_helper.cleanup.removeNavbarPremiumLinks();
         }
     };

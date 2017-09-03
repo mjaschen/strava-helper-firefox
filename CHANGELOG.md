@@ -3,6 +3,12 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.4.3] - 2017-09-03
+
+### Added
+
+- Remove promos for Strava Premium from feed
+
 ## [0.4.2] - 2017-08-24
 
 ### Fixed
