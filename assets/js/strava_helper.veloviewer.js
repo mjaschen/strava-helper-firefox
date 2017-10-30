@@ -20,8 +20,15 @@
         },
 
         init: function() {
-            strava_helper.veloviewer.addVeloViewerLinkToNavbar();
-            strava_helper.veloviewer.addVeloViewerLinkToActivityPage();
+            chrome.storage.sync.get(
+                null,
+                function (items) {
+                    if (items.add_veloviewer_links !== false) {
+                        strava_helper.veloviewer.addVeloViewerLinkToNavbar();
+                        strava_helper.veloviewer.addVeloViewerLinkToActivityPage();
+                    }
+                }
+            );
         }
 
     };

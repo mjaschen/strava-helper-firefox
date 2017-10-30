@@ -3,6 +3,16 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.5.0] - 2017-10-26
+
+### Added
+
+- The options are back!
+
+### Changed
+
+- Many adjustments to the new Strava design.
+
 ## [0.4.3] - 2017-09-03
 
 ### Added

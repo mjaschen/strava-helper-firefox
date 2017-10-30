@@ -2,11 +2,6 @@ var strava_helper = (function(strava_helper) {
 
     strava_helper.navbar = {
 
-        holdNavbar: function() {
-            $("#global-header").css({"position": "fixed", "top": "0", "z-index": "100", "width": "100%"});
-            $(".page.container").css({"margin-top": "55px"});
-        },
-
         addHeatMapLink: function() {
             $("ul.global-nav a[href^=\"/segments/explore\"]")
                 .next()
@@ -15,7 +10,6 @@ var strava_helper = (function(strava_helper) {
         },
 
         init: function() {
-            strava_helper.navbar.holdNavbar();
             strava_helper.navbar.addHeatMapLink();
         }
     };

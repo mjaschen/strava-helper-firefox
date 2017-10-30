@@ -22,11 +22,9 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - Social media dropdown menu in activity feed
 - "Create target" link
 - Social media buttons on activity detail page and Flyby page
-- Zwift screenshots in activity feed
 
 ## UI tweaks
 
-- Pins the top navigation to the top! Scroll and don't get lost!
 - Adds a link to VeloViewer to the main navigation bar and on activity pages
 - Adds a deep link to the VeloViewer activity details page (next to the Flyby link)
 
@@ -34,24 +32,24 @@ Removes all social media and premium clutter from the dashboard and activity pag
 
 ### Build a Release
 
-- `make clean strava_helper.zip`
+- `make clean all`
 
 ### Development Builds
 
-```
+```shell
 web-ext run
 ```
 
 Use an custom Firefox installation and profile:
 
-```
+```shell
 web-ext run --firefox=/Applications/FirefoxNightly.app/Contents/MacOS/firefox-bin --firefox-profile=<HOME>/Library/Application\ Support/Firefox/Profiles/r2iacdro.dev-edition-default
 ```
 
 ## Contributors
 
-* [saesh](https://github.com/saesh)
-* [Marcus Jaschen](https://www.marcusjaschen.de/)
+- [saesh](https://github.com/saesh)
+- [Marcus Jaschen](https://www.marcusjaschen.de/)
 
 ## Disclaimer
 

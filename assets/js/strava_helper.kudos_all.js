@@ -31,14 +31,17 @@ var strava_helper = (function(strava_helper) {
         },
 
         init: function() {
-            $(
-                "<div/>",
-                {
-                    id: "strava-helper-kudos-all-button",
-                    title: "Give Kudos to all visible items.",
-                    html: strava_helper.kudos_all.getKudosAllImage()
-                }
-            ).prependTo("body");
+            $("<li/>").append(
+                $(
+                    "<div/>",
+                    {
+                        id: "strava-helper-kudos-all-button",
+                        title: "Give Kudos to all visible items.",
+                        html: strava_helper.kudos_all.getKudosAllImage()
+                    }
+                )
+            ).appendTo(".user-nav");
+
             $("#strava-helper-kudos-all-button").on("click", strava_helper.kudos_all.giveKudosToAll);
         }
     };

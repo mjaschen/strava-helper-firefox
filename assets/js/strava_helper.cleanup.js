@@ -1,70 +1,90 @@
-var strava_helper = (function(strava_helper) {
+var strava_helper = (function(strava_helper, document) {
 
     strava_helper.cleanup = {
 
-        removeShopLink: function() {
-            $("div.icon-nav.icon-shop").parent().parent("li").remove();
+        removeFollowSuggestions: function() {
+            $("#suggested-follows").remove();
         },
 
-        removeInviteSections: function() {
-            $("#invite-your-friend-module").remove();
-            $("div.invite-friends").remove();
+        removeUpsellLinks: function () {
+            $(".premium.opt-group").remove();
             $(".upsell").remove();
-            $("#challenge-sidebar-rewards").remove();
-        },
-
-        removeUpcomingEvents: function () {
-            $("#upcoming-events").remove();
-        },
-
-        removeDoradoSection: function() {
-            $("#dorado-module").remove();
-        },
-
-        removeDiscoverMoreSection: function () {
-            $("#discover-more").remove();
-        },
-
-        removeNavbarPremiumLinks: function () {
-            $("li.premium.opt-group").remove();
-            $("li.upgrade", "ul.user-nav").remove();
-        },
-
-        moveRecentActivitiesToTop: function() {
-            if (! strava_helper.util.isCurrentPage(["dashboard"])) {
-                return;
-            }
-
-            var recentActivities = $(".js-channel-footer-left")
-                                        .clone()
-                                        .removeClass("spans-one-third")
-                                        .addClass("section");
-
-            recentActivities
-                .find("h3")
-                .removeClass("h4");
-
-            recentActivities.insertAfter($("#progress-goals"));
+            $("li.upgrade").remove();
         },
 
         removeClubJoinsFromFeed: function () {
-            $(".feed-entry.min-view", ".feed").remove()
+            $(".feed-entry.card.club", ".feed").remove()
         },
 
         removePromosFromFeed: function () {
-            $(".promo", ".feed").remove();
+            $(".promo.feed-entry.card", ".feed").remove();
+            $("#explore-strava").remove();
+        },
+
+        removeChallengesFromFeed: function () {
+            $(".challenge.feed-entry.card", ".feed").remove();
+            $("#your-challenges").remove();
+            $("li a[href^=\"/challenges\"]", ".global-nav").parent().remove();
+        },
+
+        watchFeedAutoScroll: function() {
+            var observerTarget = null;
+
+            if (strava_helper.util.isCurrentPage(['dashboard', 'clubs'])) {
+                observerTarget = document.querySelector('.feed-container .feed');
+            }
+
+            if (strava_helper.util.isCurrentPage(['athletes'])) {
+                observerTarget = document.querySelector('#activity-log');
+            }
+
+            if (observerTarget === null) {
+                return;
+            }
+
+            var observerConfig = { childList: true };
+
+            var observer = new MutationObserver(
+                function(mutations, observer) {
+                    mutations.forEach(
+                        function(mutation) {
+                            if (mutation.type === "childList") {
+                                strava_helper.cleanup.cleanup();
+                            }
+                        }
+                    );
+                }
+            );
+
+            observer.observe(observerTarget, observerConfig);
+        },
+
+        cleanup: function () {
+            chrome.storage.sync.get(
+                null,
+                function (items) {
+                    if (items.remove_upsell_links !== false) {
+                        strava_helper.cleanup.removeUpsellLinks();
+                    }
+                    if (items.remove_follow_suggestions !== false) {
+                        strava_helper.cleanup.removeFollowSuggestions();
+                    }
+                    if (items.remove_club_joins_from_feed !== false) {
+                        strava_helper.cleanup.removeClubJoinsFromFeed();
+                    }
+                    if (items.remove_promos_from_feed !== false) {
+                        strava_helper.cleanup.removePromosFromFeed();
+                    }
+                    if (items.remove_challenges_from_feed !== false) {
+                        strava_helper.cleanup.removeChallengesFromFeed();
+                    }
+                }
+            );
         },
 
         init: function() {
-            strava_helper.cleanup.moveRecentActivitiesToTop();
-            strava_helper.cleanup.removeDiscoverMoreSection();
-            strava_helper.cleanup.removeDoradoSection();
-            strava_helper.cleanup.removeInviteSections();
-            strava_helper.cleanup.removeUpcomingEvents();
-            strava_helper.cleanup.removeShopLink();
-            strava_helper.cleanup.removeClubJoinsFromFeed();
-            strava_helper.cleanup.removePromosFromFeed();
-            strava_helper.cleanup.removeNavbarPremiumLinks();
+            strava_helper.cleanup.cleanup();
+            strava_helper.cleanup.watchFeedAutoScroll();
         }
     };
 
@@ -72,4 +92,4 @@ var strava_helper = (function(strava_helper) {
 
     return strava_helper;
 
-}(strava_helper));
+}(strava_helper, document));

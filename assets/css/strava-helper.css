@@ -1,22 +1,9 @@
 div#strava-helper-kudos-all-button {
-  z-index: 1000;
-  position: fixed;
-  top: 9px;
-  left: 9px;
-  width: 35px;
-  height: 35px;
-  line-height: 35px;
+  height: 55px;
+  width: 55px;
   text-align: center;
-  background: #fff;
-  border: 1px solid #ccc;
-  font-weight: bold;
-  font-size: 20px;
   cursor: pointer;
-}
-
-div#strava-helper-kudos-all-button:hover {
-  background: #eee;
-  border: 2px solid #fff;
+  padding: 17px 17px 18px 18px;
 }
 
 div#strava-helper-kudos-all-button span {
@@ -24,7 +11,6 @@ div#strava-helper-kudos-all-button span {
   vertical-align: middle;
   height: 20px;
   width: 20px;
-  margin-top: -5px;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjY0IiB2aWV3Qm94PSIwIDAgMTYgNjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9JyNjY2MnIGQ9Ik0yLjYgNi40QzIuMiA2LjQgMS45IDYuNyAyIDcuMmwwLjQgNC4yYzAgMC4yIDAuMiAwLjQgMC40IDAuNGgxVjYuNEgyLjZMMi42IDYuNHpNNi42IDYuMmwyLjItM0M4LjkgMyA5IDIuNyA5LjEgMi41bDAuMi0xLjJDOS4zIDEuMSA5LjUgMSA5LjcgMWwwLjYgMC4xYzAuMiAwIDAuMyAwLjIgMC4zIDAuNXYxLjVjMCAwLjItMC4xIDAuNS0wLjEgMC43bC0wLjQgMS4zYy0wLjEgMC40IDAuMSAxLjEgMC41IDEuMWgyLjdjMC40IDAgMC43IDAuNSAwLjcgMC45bC0wLjggNS4zYy0wLjEgMC4zLTAuNCAwLjYtMC44IDAuNmgtMi4yYy0wLjIgMC0wLjUgMC0wLjctMC4xbC00LjEtMVY2LjZoMC43QzYuMyA2LjUgNi41IDYuNCA2LjYgNi4yeiIvPjxwYXRoIGZpbGw9JyM2NjYnIGQ9Ik0yLjYgMjIuNGMtMC4zIDAtMC42IDAuMy0wLjYgMC44bDAuNCA0LjJjMCAwLjIgMC4yIDAuNCAwLjQgMC40aDF2LTUuNEgyLjZMMi42IDIyLjR6TTYuNiAyMi4ybDIuMi0zYzAuMS0wLjIgMC4zLTAuNSAwLjMtMC43bDAuMi0xLjJDOS40IDE3LjEgOS41IDE3IDkuNyAxN2wwLjYgMC4xYzAuMiAwIDAuMyAwLjIgMC4zIDAuNXYxLjVjMCAwLjItMC4xIDAuNS0wLjEgMC43bC0wLjQgMS4zYy0wLjIgMC4zIDAuMSAxIDAuNSAxaDIuN2MwLjQgMCAwLjcgMC41IDAuNyAwLjlsLTAuOCA1LjNjLTAuMSAwLjQtMC40IDAuNy0wLjggMC43aC0yLjJjLTAuMiAwLTAuNSAwLTAuNy0wLjFsLTQuMS0xdi01LjRoMC43QzYuMyAyMi41IDYuNSAyMi40IDYuNiAyMi4yeiIvPjxwYXRoIGZpbGw9JyNmZmYnIGQ9Ik0yLjYgMzguNGMtMC40IDAtMC43IDAuMy0wLjYgMC44bDAuNCA0LjJjMCAwLjIgMC4yIDAuNCAwLjQgMC40aDF2LTUuNEwyLjYgMzguNCAyLjYgMzguNHpNNi42IDM4LjJsMi4yLTNDOC45IDM1IDkgMzQuNyA5LjEgMzQuNWwwLjItMS4yYzAtMC4yIDAuMi0wLjMgMC40LTAuM2wwLjYgMC4xYzAuMiAwIDAuMyAwLjIgMC4zIDAuNXYxLjVjMCAwLjItMC4xIDAuNS0wLjEgMC43bC0wLjQgMS4zYy0wLjEgMC40IDAuMSAxLjEgMC41IDEuMWgyLjdjMC40IDAgMC43IDAuNSAwLjcgMC45bC0wLjggNS4zYy0wLjEgMC4zLTAuNCAwLjYtMC44IDAuNmgtMi4yYy0wLjIgMC0wLjUgMC0wLjctMC4xbC00LjEtMXYtNS4zaDAuN0M2LjMgMzguNSA2LjUgMzguNCA2LjYgMzguMnoiLz48cGF0aCBmaWxsPScjZmM0YzAxJyBkPSJNMi42IDU0LjRjLTAuNCAwLTAuNyAwLjMtMC42IDAuOGwwLjQgNC4yYzAgMC4yIDAuMiAwLjQgMC40IDAuNGgxdi01LjRIMi42TDIuNiA1NC40ek02LjYgNTQuMmwyLjItM0M4LjkgNTEgOSA1MC43IDkuMSA1MC41bDAuMi0xLjJjMC0wLjIgMC4yLTAuMyAwLjQtMC4zbDAuNiAwLjFjMC4yIDAgMC4zIDAuMiAwLjMgMC41djEuNWMwIDAuMi0wLjEgMC41LTAuMSAwLjdsLTAuNCAxLjNjLTAuMSAwLjQgMC4xIDEuMSAwLjUgMS4xaDIuN2MwLjQgMCAwLjcgMC41IDAuNyAwLjlsLTAuOCA1LjNjLTAuMSAwLjMtMC40IDAuNi0wLjggMC42aC0yLjJjLTAuMiAwLTAuNSAwLTAuNy0wLjFsLTQuMS0xdi01LjNoMC43QzYuMyA1NC41IDYuNSA1NC40IDYuNiA1NC4yeiIvPjwvc3ZnPgo=");
   background-position: 0 99.999%;
   background-size: cover;
@@ -34,7 +20,9 @@ div#strava-helper-kudos-all-button span {
 div#strava-helper-kudos-all-button.strava-helper-kudos-all-button-result {
   font-size: 12px;
   font-weight: normal;
+  animation-duration: 0.5s;
   -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
 }
 
 .link-veloviewer {
