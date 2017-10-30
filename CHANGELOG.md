@@ -3,6 +3,13 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.5.2] - 2017-10-30
+## [0.5.1] - 2017-10-30
+
+### Fixed
+
+- fix installation error in Chrome: “Package is invalid. Could not load options page.”
+
 ## [0.5.0] - 2017-10-26
 
 ### Added

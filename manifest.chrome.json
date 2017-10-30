@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Strava Helper",
   "description": "Some tweaks for Strava. Adds a \"Give Kudos to All\" button, removes clutter and provides UI tweaks.",
-  "version": "0.5.1",
+  "version": "0.5.2",
 
   "permissions": [
     "activeTab",
@@ -42,7 +42,7 @@
   },
 
   "options_ui": {
-    "page": "options.html",
+    "page": "assets/html/options.html",
     "chrome_style": true
   }
 }
