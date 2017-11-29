@@ -3,7 +3,7 @@ CSS_RESOURCES = $(shell find assets/css -name '*.css')
 IMAGE_RESOURCES = $(shell find assets/img -type f)
 HTML_RESOURCES = $(shell find assets/html -type f)
 
-all: strava_helper_firefox.zip strava_helper_chrome.zip
+all: clean strava_helper_firefox.zip strava_helper_chrome.zip
 
 strava_helper_firefox.zip: $(JS_RESOURCES) $(CSS_RESOURCES) $(IMAGE_RESOURCES) $(HTML_RESOURCES) manifest_firefox
 	zip $@ $(JS_RESOURCES) $(CSS_RESOURCES) $(IMAGE_RESOURCES) $(HTML_RESOURCES) manifest.json

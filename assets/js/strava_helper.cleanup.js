@@ -16,6 +16,10 @@ var strava_helper = (function(strava_helper, document) {
             $(".feed-entry.card.club", ".feed").remove()
         },
 
+        removeZwiftActivitiesFromFeed: function () {
+            $("div.sponsor", "div.activity").parents("div.activity").remove();
+        },
+
         removePromosFromFeed: function () {
             $(".promo.feed-entry.card", ".feed").remove();
             $("#explore-strava").remove();
@@ -71,6 +75,9 @@ var strava_helper = (function(strava_helper, document) {
                     }
                     if (items.remove_club_joins_from_feed !== false) {
                         strava_helper.cleanup.removeClubJoinsFromFeed();
+                    }
+                    if (items.remove_zwift_activities_from_feed !== false) {
+                        strava_helper.cleanup.removeZwiftActivitiesFromFeed();
                     }
                     if (items.remove_promos_from_feed !== false) {
                         strava_helper.cleanup.removePromosFromFeed();

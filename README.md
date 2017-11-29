@@ -22,29 +22,44 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - Social media dropdown menu in activity feed
 - "Create target" link
 - Social media buttons on activity detail page and Flyby page
+- Zwift activities
 
 ## UI tweaks
 
 - Adds a link to VeloViewer to the main navigation bar and on activity pages
 - Adds a deep link to the VeloViewer activity details page (next to the Flyby link)
 
-## Building
+## Development
 
-### Build a Release
+### Building
 
-- `make clean all`
+#### Build a Release
 
-### Development Builds
+1. Increase the version number in `manifest.firefox.json` and `manifest.chrome.json`
+1. Create the distribution archives:
+
+```shell
+make all
+```
+
+The extension files `strava_helper_firefox.zip` and `strava_helper_chrome.zip` will be created in the current directory.
+
+#### Development Builds
 
 ```shell
 web-ext run
 ```
 
-Use an custom Firefox installation and profile:
+Use a custom Firefox installation and profile:
 
 ```shell
-web-ext run --firefox=/Applications/FirefoxNightly.app/Contents/MacOS/firefox-bin --firefox-profile=<HOME>/Library/Application\ Support/Firefox/Profiles/r2iacdro.dev-edition-default
+web-ext run --firefox=/Applications/FirefoxNightly.app/Contents/MacOS/firefox-bin --firefox-profile=$HOME/Library/Application\ Support/Firefox/Profiles/\<PROFILE NAME\>
 ```
+
+### Add a Setting to the Preferences
+
+- add an input field with an unique ID to `assets/html/options.html`
+- add the settings for that field to the `settings` object in `assets/js/strava_helper.options.js`
 
 ## Contributors
 

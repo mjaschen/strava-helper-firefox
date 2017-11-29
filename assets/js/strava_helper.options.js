@@ -15,6 +15,10 @@
                 type: "checkbox",
                 default: true,
             },
+            remove_zwift_activities_from_feed: {
+                type: "checkbox",
+                default: true,
+            },
             remove_promos_from_feed: {
                 type: "checkbox",
                 default: true,
