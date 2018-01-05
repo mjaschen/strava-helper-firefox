@@ -19,6 +19,14 @@
                 type: "checkbox",
                 default: true,
             },
+            remove_commutes_from_feed: {
+                type: "checkbox",
+                default: false,
+            },
+            remove_goals_from_feed: {
+                type: "checkbox",
+                default: true,
+            },
             remove_promos_from_feed: {
                 type: "checkbox",
                 default: true,
@@ -36,7 +44,12 @@
         save_options: function () {
             var data = {};
             for (let setting in options.settings) {
-                data[setting] = document.getElementById(setting).checked;
+                if (options.settings[setting].type === "checkbox") {
+                    data[setting] = document.getElementById(setting).checked;
+                }
+                if (options.settings[setting].type === "text") {
+                    data[setting] = document.getElementById(setting).value;
+                }
             }
             chrome.storage.sync.set(
                 data,
@@ -66,7 +79,12 @@
                 options.get_default_settings(),
                 function (items) {
                     for (let setting in items) {
-                        document.getElementById(setting).checked = items[setting];
+                        if (options.settings[setting].type === "checkbox") {
+                            document.getElementById(setting).checked = items[setting];
+                        }
+                        if (options.settings[setting].type === "text") {
+                            document.getElementById(setting).value = items[setting];
+                        }
                     }
                 }
             );

@@ -31,6 +31,14 @@ var strava_helper = (function(strava_helper, document) {
             $("li a[href^=\"/challenges\"]", ".global-nav").parent().remove();
         },
 
+        removeCommutes: function () {
+            $(".activity-map-tag:contains('Commute')", ".feed").parents("div.activity").remove();
+        },
+
+        removeGoals: function() {
+            $(".performance-goal", ".feed").remove();
+        },
+
         watchFeedAutoScroll: function() {
             var observerTarget = null;
 
@@ -78,6 +86,12 @@ var strava_helper = (function(strava_helper, document) {
                     }
                     if (items.remove_zwift_activities_from_feed !== false) {
                         strava_helper.cleanup.removeZwiftActivitiesFromFeed();
+                    }
+                    if (items.remove_commutes_from_feed !== false) {
+                        strava_helper.cleanup.removeCommutes();
+                    }
+                    if (items.remove_goals_from_feed !== false) {
+                        strava_helper.cleanup.removeGoals();
                     }
                     if (items.remove_promos_from_feed !== false) {
                         strava_helper.cleanup.removePromosFromFeed();

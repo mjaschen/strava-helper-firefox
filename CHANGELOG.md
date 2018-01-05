@@ -3,6 +3,13 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.6.0] - 2018-01-05
+
+### Added
+
+- activities tagged as "Commute" can be removed from the feed (see Preferences/Options)
+- "Performance Goals" can be removed from the feed (see Preferences/Options)
+
 ## [0.5.2] - 2017-10-30
 ## [0.5.1] - 2017-10-30
 
