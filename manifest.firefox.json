@@ -9,7 +9,7 @@
     "gecko":
     {
       "id": "@strava-helper",
-      "strict_min_version": "48.0"
+      "strict_min_version": "57.0"
     }
   },
 
