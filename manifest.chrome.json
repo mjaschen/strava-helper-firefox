@@ -18,7 +18,7 @@
       "assets/css/strava-helper.css"
     ],
     "js": [
-      "assets/js/jquery.min.js",
+      "assets/js/jquery-3.4.1.min.js",
       "assets/js/strava_helper.root.js",
       "assets/js/strava_helper.util.js",
       "assets/js/strava_helper.cleanup.js",
