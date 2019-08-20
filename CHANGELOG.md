@@ -3,6 +3,18 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.8.0] - 2019-08-20
+
+### Fixed
+
+- Wahoo ELEMNT Bolt activities are no longer removed when the ZWIFT filter is enabled
+
+## [0.7.0] - 2019-05-31
+
+### Changed
+
+- update Firefox permission requirements
+
 ## [0.6.0] - 2018-01-05
 
 ### Added
