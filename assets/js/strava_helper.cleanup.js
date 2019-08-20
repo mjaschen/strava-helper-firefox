@@ -19,7 +19,31 @@ strava_helper = (function (strava_helper, document) {
         },
 
         removeZwiftActivitiesFromFeed: function () {
-            $("div.sponsor", "div.activity").parents("div.activity").remove();
+            $('div.sponsor', 'div.activity')
+                .filter(function () {
+                    for (let image of $('img', $(this))) {
+                        if ($(image).attr('alt').match(/zwift/i)) {
+                            return true
+                        }
+                    }
+                    return false
+                })
+                .parents('div.activity')
+                .remove()
+        },
+
+        removeWahooActivitiesFromFeed: function () {
+            $('div.sponsor', 'div.activity')
+                .filter(function () {
+                    for (let image of $('img', $(this))) {
+                        if ($(image).attr('alt').match(/wahoo elemnt/i)) {
+                            return true
+                        }
+                    }
+                    return false
+                })
+                .parents('div.activity')
+                .remove()
         },
 
         removePromosFromFeed: function () {
@@ -109,7 +133,7 @@ strava_helper = (function (strava_helper, document) {
             strava_helper.cleanup.cleanup()
             strava_helper.cleanup.watchFeedAutoScroll()
         }
-        }
+    }
 
     strava_helper.cleanup.init()
 
