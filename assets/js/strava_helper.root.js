@@ -1,13 +1,11 @@
-var strava_helper = (function() {
+let strava_helper = (function () {
 
-    strava_helper = {
+    return {
         config: {
             logging: {
                 debug: true
             }
         }
-    };
+    }
 
-    return strava_helper;
-
-}());
+}())

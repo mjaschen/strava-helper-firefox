@@ -1,53 +1,53 @@
-var strava_helper = (function(strava_helper) {
+strava_helper = (function (strava_helper) {
 
     strava_helper.kudos_all = {
-        getKudosAllImage: function() {
-            return "<span title=\"Give Kudos to all visible activities!\"></span>";
+        getKudosAllImage: function () {
+            return '<span title="Give Kudos to all visible activities!"></span>'
         },
 
-        giveKudosToAll: function() {
-            var count = $("button.js-add-kudo").length;
-            $("button.js-add-kudo").trigger("click");
-            strava_helper.kudos_all.showKudosCount(count, true);
+        giveKudosToAll: function () {
+            var count = $('button.js-add-kudo').length
+            $('button.js-add-kudo').trigger('click')
+            strava_helper.kudos_all.showKudosCount(count, true)
 
-            var timer = window.setTimeout(function() {
-                strava_helper.kudos_all.resetKudosButton();
-            }, 3000);
+            var timer = window.setTimeout(function () {
+                strava_helper.kudos_all.resetKudosButton()
+            }, 3000)
         },
 
-        showKudosCount: function(count) {
+        showKudosCount: function (count) {
             if (count === 0) {
-                return;
+                return
             }
-            $("#strava-helper-kudos-all-button")
-                .text(count.toString() + "x")
-                .addClass("strava-helper-kudos-all-button-result animated bounce");
+            $('#strava-helper-kudos-all-button')
+                .text(count.toString() + 'x')
+                .addClass('strava-helper-kudos-all-button-result animated bounce')
         },
 
-        resetKudosButton: function() {
-            $("#strava-helper-kudos-all-button")
+        resetKudosButton: function () {
+            $('#strava-helper-kudos-all-button')
                 .html(strava_helper.kudos_all.getKudosAllImage())
-                .removeClass("strava-helper-kudos-all-button-result animated bounce");
+                .removeClass('strava-helper-kudos-all-button-result animated bounce')
         },
 
-        init: function() {
-            $("<li/>").append(
+        init: function () {
+            $('<li/>').append(
                 $(
-                    "<div/>",
+                    '<div/>',
                     {
-                        id: "strava-helper-kudos-all-button",
-                        title: "Give Kudos to all visible items.",
+                        id: 'strava-helper-kudos-all-button',
+                        title: 'Give Kudos to all visible items.',
                         html: strava_helper.kudos_all.getKudosAllImage()
                     }
                 )
-            ).appendTo(".user-nav");
+            ).appendTo('.user-nav')
 
-            $("#strava-helper-kudos-all-button").on("click", strava_helper.kudos_all.giveKudosToAll);
+            $('#strava-helper-kudos-all-button').on('click', strava_helper.kudos_all.giveKudosToAll)
         }
-    };
+    }
 
-    strava_helper.kudos_all.init();
+    strava_helper.kudos_all.init()
 
-    return strava_helper;
+    return strava_helper
 
-}(strava_helper));
+}(strava_helper))
