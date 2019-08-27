@@ -3,6 +3,12 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.8.1] - 2019-08-27
+
+### Fixed
+
+- Commutes are removed in the German translation
+
 ## [0.8.0] - 2019-08-20
 
 ### Fixed

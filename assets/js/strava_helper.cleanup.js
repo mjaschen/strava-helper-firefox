@@ -58,7 +58,9 @@ strava_helper = (function (strava_helper, document) {
         },
 
         removeCommutes: function () {
-            $('.activity-map-tag:contains(\'Commute\')', '.feed').parents('div.activity').remove()
+            $('.activity-map-tag:contains(Commute),.activity-map-tag:contains(Pendeln)', '.feed')
+                .parents('div.activity')
+                .remove()
         },
 
         removeGoals: function () {
