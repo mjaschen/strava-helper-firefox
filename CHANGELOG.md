@@ -3,6 +3,12 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.8.2] - 2019-10-15
+
+### Added
+
+- Include upsell container on activity pages when removing promo stuff
+
 ## [0.8.1] - 2019-08-27
 
 ### Fixed

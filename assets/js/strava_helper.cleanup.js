@@ -11,6 +11,7 @@ strava_helper = (function (strava_helper, document) {
         removeUpsellLinks: function () {
             $('.premium.opt-group').remove()
             $('.upsell').remove()
+            $('.relative-effort-upsell').remove()
             $('li.upgrade').remove()
         },
 

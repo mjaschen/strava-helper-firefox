@@ -35,6 +35,7 @@ Removes all social media and premium clutter from the dashboard and activity pag
 
 #### Build a Release
 
+1. Update `CHANGELOG.md`
 1. Increase the version number in `manifest.firefox.json` and `manifest.chrome.json`
 1. Create the distribution archives:
 
