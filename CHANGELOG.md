@@ -3,6 +3,12 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.10.0] - 2020-05-25
+
+### Changed
+
+- remove the `activeTab` permission (Chrome version)
+
 ## [0.9.0] - 2020-05-25
 
 ### Added
