@@ -55,7 +55,7 @@ strava_helper = (function (strava_helper, document) {
         removeChallengesFromFeed: function () {
             $('.challenge.feed-entry.card', '.feed').remove()
             $('#your-challenges').remove()
-            $('li a[href^="/challenges"]', '.global-nav').parent().remove()
+            $('.achievement-celebration').parents('.entry-media').remove()
         },
 
         removeCommutes: function () {

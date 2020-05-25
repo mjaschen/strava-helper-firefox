@@ -23,6 +23,7 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - "Create target" link
 - Social media buttons on activity detail page and Flyby page
 - Zwift activities
+- Achievement celebrations in feed
 
 ## UI tweaks
 

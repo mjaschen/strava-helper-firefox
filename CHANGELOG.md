@@ -3,6 +3,12 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.9.0] - 2020-05-25
+
+### Added
+
+- Achievement Celebrations are removed from the feed if the "Remove challenges from the feed" setting is enabled.
+
 ## [0.8.2] - 2019-10-15
 
 ### Added
