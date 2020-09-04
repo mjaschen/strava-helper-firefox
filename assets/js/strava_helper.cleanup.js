@@ -20,15 +20,13 @@ strava_helper = (function (strava_helper, document) {
         },
 
         removeZwiftActivitiesFromFeed: function () {
-            $('div.sponsor', 'div.activity')
-                .filter(function () {
-                    for (let image of $('img', $(this))) {
-                        if ($(image).attr('alt').match(/zwift/i)) {
-                            return true
-                        }
+            $('div.enhanced-tag', 'div.activity')
+                .filter(
+                    (idx, elem) => {
+                        console.log(idx, $(elem).text(), $(elem))
+                        return null !== $(elem).text().match(/zwift/i)
                     }
-                    return false
-                })
+                )
                 .parents('div.activity')
                 .remove()
         },

@@ -14,7 +14,7 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - "Upcoming events"
 - "Discover more"
 - "Follow suggestions"
-- Promotional footer at the bottom
+- the promotional footer at the bottom
 - "Shop" link
 - "Get Premium" link
 - "Get Premium" box on dashboard
