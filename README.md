@@ -14,7 +14,7 @@ Removes all social media and premium clutter from the dashboard and activity pag
 - "Upcoming events"
 - "Discover more"
 - "Follow suggestions"
-- Promotional footer at the bottom
+- the promotional footer at the bottom
 - "Shop" link
 - "Get Premium" link
 - "Get Premium" box on dashboard
@@ -45,6 +45,11 @@ make all
 ```
 
 The extension files `strava_helper_firefox.zip` and `strava_helper_chrome.zip` will be created in the current directory.
+
+Upload the extensions:
+
+- [Mozilla Add-on Developer Hub](https://addons.mozilla.org/en-US/developers/addons)
+- [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/)
 
 #### Development Builds
 
