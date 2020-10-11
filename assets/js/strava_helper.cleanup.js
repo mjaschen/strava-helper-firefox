@@ -9,10 +9,16 @@ strava_helper = (function (strava_helper, document) {
         },
 
         removeUpsellLinks: function () {
-            $('.premium.opt-group').remove()
-            $('.upsell').remove()
-            $('.relative-effort-upsell').remove()
-            $('li.upgrade').remove()
+            [
+                '.premium.opt-group',
+                '.upsell',
+                '.relative-effort-upsell',
+                '.matched-activities-upsell',
+                '#segments-upsell',
+                'li.upgrade',
+            ].forEach(function(selector) {
+                $(selector).remove()
+            })
         },
 
         removeClubJoinsFromFeed: function () {
