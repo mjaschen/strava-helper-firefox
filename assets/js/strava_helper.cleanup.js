@@ -16,7 +16,7 @@ strava_helper = (function (strava_helper, document) {
                 '.matched-activities-upsell',
                 '#segments-upsell',
                 'li.upgrade',
-            ].forEach(function(selector) {
+            ].forEach(function (selector) {
                 $(selector).remove()
             })
         },
@@ -29,7 +29,6 @@ strava_helper = (function (strava_helper, document) {
             $('div.enhanced-tag', 'div.activity')
                 .filter(
                     (idx, elem) => {
-                        console.log(idx, $(elem).text(), $(elem))
                         return null !== $(elem).text().match(/zwift/i)
                     }
                 )
@@ -37,11 +36,10 @@ strava_helper = (function (strava_helper, document) {
                 .remove()
         },
 
-	removePelotonActivitiesFromFeed: function () {
+        removePelotonActivitiesFromFeed: function () {
             $('div.enhanced-tag', 'div.activity')
                 .filter(
                     (idx, elem) => {
-                        console.log(idx, $(elem).text(), $(elem))
                         return null !== $(elem).text().match(/peloton/i)
                     }
                 )
