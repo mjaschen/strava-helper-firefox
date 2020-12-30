@@ -3,6 +3,16 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.13.0] - 2020-12-30
+
+### Added
+
+- *Peloton* activities can be removed from feed. Thanks @wwcsig
+
+## [0.12.0] - 2020-10-20
+
+(no changes, tagged for resubmitting @ Chrome Web Store)
+
 ## [0.11.0] - 2020-09-04
 
 ### Fixed
