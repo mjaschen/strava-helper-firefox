@@ -37,6 +37,18 @@ strava_helper = (function (strava_helper, document) {
                 .remove()
         },
 
+	removePelotonActivitiesFromFeed: function () {
+            $('div.enhanced-tag', 'div.activity')
+                .filter(
+                    (idx, elem) => {
+                        console.log(idx, $(elem).text(), $(elem))
+                        return null !== $(elem).text().match(/peloton/i)
+                    }
+                )
+                .parents('div.activity')
+                .remove()
+        },
+
         removeWahooActivitiesFromFeed: function () {
             $('div.sponsor', 'div.activity')
                 .filter(function () {
@@ -119,6 +131,9 @@ strava_helper = (function (strava_helper, document) {
                     }
                     if (items.remove_zwift_activities_from_feed !== false) {
                         strava_helper.cleanup.removeZwiftActivitiesFromFeed()
+                    }
+                    if (items.remove_peloton_activities_from_feed !== false) {
+                        strava_helper.cleanup.removePelotonActivitiesFromFeed()
                     }
                     if (items.remove_commutes_from_feed !== false) {
                         strava_helper.cleanup.removeCommutes()
