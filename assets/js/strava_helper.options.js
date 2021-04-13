@@ -19,6 +19,10 @@
                 type: 'checkbox',
                 default: true
             },
+            remove_peloton_activities_from_feed: {
+                type: 'checkbox',
+                default: true
+            },
             remove_commutes_from_feed: {
                 type: 'checkbox',
                 default: false
