@@ -3,6 +3,12 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.13.1] - 2021-04-13
+
+### Fixed
+
+- save *Peloton* filter option works now. Thanks @wwcsig
+
 ## [0.13.0] - 2020-12-30
 
 ### Added
