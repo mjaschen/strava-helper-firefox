@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Strava Helper",
   "description": "Some tweaks for Strava. Adds a \"Give Kudos to All\" button, removes clutter and provides UI tweaks.",
-  "version": "0.13.1",
+  "version": "1.0.0",
 
   "applications":
   {
@@ -26,7 +26,7 @@
       "assets/css/strava-helper.css"
     ],
     "js": [
-      "assets/js/jquery-3.4.1.min.js",
+      "assets/js/jquery-3.6.0.min.js",
       "assets/js/strava_helper.root.js",
       "assets/js/strava_helper.util.js",
       "assets/js/strava_helper.cleanup.js",

@@ -1,6 +1,6 @@
 # Strava Helper
 
-This Firefox Add-on aims to provide some tweaks for the Strava Website.
+This Add-on aims to provide some tweaks for the Strava Website. It supports Firefox, Edge and Chrome (as well as most Chrome clones, e.g. Opera, Vivaldi, Brave etc.).
 
 ## Give Kudos to All
 
@@ -46,12 +46,19 @@ Removes all social media and premium clutter from the dashboard and activity pag
 make all
 ```
 
-The extension files `strava_helper_firefox.zip` and `strava_helper_chrome.zip` will be created in the current directory.
+The extension files
+
+- `strava_helper_firefox.zip`
+- `strava_helper_chrome.zip`
+- `strava_helper_edge.zip`
+
+will be created in the current directory.
 
 Upload the extensions:
 
 - [Mozilla Add-on Developer Hub](https://addons.mozilla.org/en-US/developers/addons)
 - [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/)
+- [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/microsoftedge/overview)
 
 #### Development Builds
 

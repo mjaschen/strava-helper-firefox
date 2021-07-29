@@ -3,6 +3,17 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.0.0] - 2021-07-29
+
+### Added
+
+- available as native Edge Extension
+
+### Changed
+
+- update jQuery to 3.6.0
+- show Kudos count for 5 seconds after clicking the icon
+
 ## [0.13.1] - 2021-04-13
 
 ### Fixed

@@ -12,7 +12,7 @@ strava_helper = (function (strava_helper) {
 
             var timer = window.setTimeout(function () {
                 strava_helper.kudos_all.resetKudosButton()
-            }, 3000)
+            }, 5000)
         },
 
         showKudosCount: function (count) {
