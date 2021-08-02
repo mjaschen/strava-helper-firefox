@@ -3,6 +3,12 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.1.0] - 2021-08-02
+
+### Fixed
+
+- adjustments for Strava's new page markup (“Give Kudos to All”, remove Challenges from feed)
+
 ## [1.0.0] - 2021-07-29
 
 ### Added
