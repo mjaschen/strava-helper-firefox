@@ -67,7 +67,7 @@ strava_helper = (function (strava_helper, document) {
         },
 
         removeChallengesFromFeed: function () {
-            $('.challenge.feed-entry.card', '.feed').remove()
+            $('div[data-react-class="ChallengeJoin"]', '.feed').parent().remove();
             $('#your-challenges').remove()
             $('.achievement-celebration').parents('.entry-media').remove()
         },
