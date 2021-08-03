@@ -3,6 +3,12 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.1.1] - 2021-08-03
+
+### Fixed
+
+- restore handling of old selectors because the new markup isn't available for all users yet, see [issue comment](https://github.com/mjaschen/strava-helper-chrome/issues/2#issuecomment-891251355)
+
 ## [1.1.0] - 2021-08-02
 
 ### Fixed
