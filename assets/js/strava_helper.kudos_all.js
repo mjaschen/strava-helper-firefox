@@ -8,6 +8,12 @@ strava_helper = (function (strava_helper) {
         giveKudosToAll: function () {
             let kudos_count = 0
 
+            kudos_count += $('button.js-add-kudo').length
+
+            // old markup
+            $('button.js-add-kudo').trigger('click')
+
+            // new markup (mid 2021)
             // search for all "Kudos" buttons on the current page ...
             $('button[data-testid="kudos_button"]').each(function(index, element) {
                 // ... skip if Kudos where already given to an activity
