@@ -3,6 +3,12 @@
 All notable changes to `mjaschen/strava-helper-firefox` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.1.2] - 2021-08-05
+
+### Fixed
+
+- adjustments to manifest schema version 3 (Edge)
+
 ## [1.1.1] - 2021-08-03
 
 ### Fixed
