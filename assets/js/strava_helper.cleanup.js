@@ -26,29 +26,27 @@ strava_helper = (function (strava_helper, document) {
         },
 
         removeZwiftActivitiesFromFeed: function () {
-            $('div.enhanced-tag', 'div.activity')
+            $('div.react-card-container')
                 .filter(
                     (idx, elem) => {
                         return null !== $(elem).text().match(/zwift/i)
                     }
                 )
-                .parents('div.activity')
                 .remove()
         },
 
         removePelotonActivitiesFromFeed: function () {
-            $('div.enhanced-tag', 'div.activity')
+            $('div.react-card-container')
                 .filter(
                     (idx, elem) => {
                         return null !== $(elem).text().match(/peloton/i)
                     }
                 )
-                .parents('div.activity')
                 .remove()
         },
 
         removeWahooActivitiesFromFeed: function () {
-            $('div.sponsor', 'div.activity')
+	    $('div.react-card-container')
                 .filter(function () {
                     for (let image of $('img', $(this))) {
                         if ($(image).attr('alt').match(/wahoo elemnt/i)) {
@@ -57,7 +55,6 @@ strava_helper = (function (strava_helper, document) {
                     }
                     return false
                 })
-                .parents('div.activity')
                 .remove()
         },
 
