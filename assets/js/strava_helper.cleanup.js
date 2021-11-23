@@ -1,14 +1,14 @@
 /* global $ */
 
-strava_helper = (function (strava_helper, document) {
+strava_helper = (function(strava_helper, document) {
 
     strava_helper.cleanup = {
 
-        removeFollowSuggestions: function () {
+        removeFollowSuggestions: function() {
             $('#suggested-follows').remove()
         },
 
-        removeUpsellLinks: function () {
+        removeUpsellLinks: function() {
             [
                 '.premium.opt-group',
                 '.upsell',
@@ -16,16 +16,16 @@ strava_helper = (function (strava_helper, document) {
                 '.matched-activities-upsell',
                 '#segments-upsell',
                 'li.upgrade',
-            ].forEach(function (selector) {
+            ].forEach(function(selector) {
                 $(selector).remove()
             })
         },
 
-        removeClubJoinsFromFeed: function () {
+        removeClubJoinsFromFeed: function() {
             $('.feed-entry.card.club', '.feed').remove()
         },
 
-        removeZwiftActivitiesFromFeed: function () {
+        removeZwiftActivitiesFromFeed: function() {
             $('div.enhanced-tag', 'div.activity')
                 .filter(
                     (idx, elem) => {
@@ -36,7 +36,7 @@ strava_helper = (function (strava_helper, document) {
                 .remove()
         },
 
-        removePelotonActivitiesFromFeed: function () {
+        removePelotonActivitiesFromFeed: function() {
             $('div.enhanced-tag', 'div.activity')
                 .filter(
                     (idx, elem) => {
@@ -47,9 +47,9 @@ strava_helper = (function (strava_helper, document) {
                 .remove()
         },
 
-        removeWahooActivitiesFromFeed: function () {
+        removeWahooActivitiesFromFeed: function() {
             $('div.sponsor', 'div.activity')
-                .filter(function () {
+                .filter(function() {
                     for (let image of $('img', $(this))) {
                         if ($(image).attr('alt').match(/wahoo elemnt/i)) {
                             return true
@@ -61,30 +61,30 @@ strava_helper = (function (strava_helper, document) {
                 .remove()
         },
 
-        removePromosFromFeed: function () {
+        removePromosFromFeed: function() {
             $('.promo.feed-entry.card', '.feed').remove()
             $('div[data-react-class="FancyPromo"]', '.feed').parent().remove();
             $('#explore-strava').remove()
         },
 
-        removeChallengesFromFeed: function () {
+        removeChallengesFromFeed: function() {
             $('.challenge.feed-entry.card', '.feed').remove()
             $('div[data-react-class="ChallengeJoin"]', '.feed').parent().remove();
             $('#your-challenges').remove()
             $('.achievement-celebration').parents('.entry-media').remove()
         },
 
-        removeCommutes: function () {
+        removeCommutes: function() {
             $('.activity-map-tag:contains(Commute),.activity-map-tag:contains(Pendeln)', '.feed')
                 .parents('div.activity')
                 .remove()
         },
 
-        removeGoals: function () {
+        removeGoals: function() {
             $('.performance-goal', '.feed').remove()
         },
 
-        watchFeedAutoScroll: function () {
+        watchFeedAutoScroll: function() {
             var observerTarget = null
 
             if (strava_helper.util.isCurrentPage(['dashboard', 'clubs'])) {
@@ -102,9 +102,9 @@ strava_helper = (function (strava_helper, document) {
             var observerConfig = { childList: true }
 
             var observer = new MutationObserver(
-                function (mutations, observer) {
+                function(mutations, observer) {
                     mutations.forEach(
-                        function (mutation) {
+                        function(mutation) {
                             if (mutation.type === 'childList') {
                                 strava_helper.cleanup.cleanup()
                             }
@@ -116,10 +116,10 @@ strava_helper = (function (strava_helper, document) {
             observer.observe(observerTarget, observerConfig)
         },
 
-        cleanup: function () {
+        cleanup: function() {
             chrome.storage.sync.get(
                 null,
-                function (items) {
+                function(items) {
                     if (items.remove_upsell_links !== false) {
                         strava_helper.cleanup.removeUpsellLinks()
                     }
@@ -151,7 +151,7 @@ strava_helper = (function (strava_helper, document) {
             )
         },
 
-        init: function () {
+        init: function() {
             strava_helper.cleanup.cleanup()
             strava_helper.cleanup.watchFeedAutoScroll()
         }
