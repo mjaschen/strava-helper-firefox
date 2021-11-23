@@ -38,8 +38,8 @@ Removes all social media and premium clutter from the dashboard and activity pag
 #### Build a Release
 
 1. Update `CHANGELOG.md`
-1. Increase the version number in `manifest.firefox.json` and `manifest.chrome.json`
-1. Commit everything and create a tag in Git  
+1. Increase the version number in `manifest.firefox.json`, `manifest.edge.json` and `manifest.chrome.json`
+1. Commit everything and create a tag in Git
 1. Create the distribution archives:
 
 ```shell
