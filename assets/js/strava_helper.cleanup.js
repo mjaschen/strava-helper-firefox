@@ -63,6 +63,7 @@ strava_helper = (function (strava_helper, document) {
 
         removePromosFromFeed: function () {
             $('.promo.feed-entry.card', '.feed').remove()
+            $('div[data-react-class="FancyPromo"]', '.feed').parent().remove();
             $('#explore-strava').remove()
         },
 
